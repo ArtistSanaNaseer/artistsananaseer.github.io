@@ -3,77 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sana Naseer | Fine Artist & Miniature Painter</title>
+    <title>Sana Naseer | Visual Artist & Miniature Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d0d0d;
-            --card-bg: #161616;
-            --accent-color: #c5a059;
-            --text-color: #e5e5e5;
-            --text-muted: #a0a0a0;
-            --border-color: #2a2a2a;
+            --bg-color: #121113;
+            --card-bg: rgba(26, 25, 29, 0.85);
+            --card-border: rgba(212, 175, 55, 0.25);
+            --accent-gold: #e5c158;
+            --accent-glow: rgba(229, 193, 88, 0.35);
+            --text-main: #f9f9fb;
+            --text-sub: #c4c4cc;
+            --sold-color: #ef4444;
+            --avail-color: #10b981;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Bright & Artistic Gold Animated Dust Canvas Background */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.85;
         }
 
         h1, h2, h3, h4, .brand-logo {
             font-family: 'Cinzel', serif;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        /* Navigation */
+        /* Navigation Bar - Clean & Short Labels */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: rgba(13, 13, 13, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
+            background: rgba(18, 17, 19, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--card-border);
             z-index: 1000;
-            padding: 1rem 5%;
+            padding: 1.1rem 6%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .brand-logo {
-            font-size: 1.4rem;
+            font-size: 1.45rem;
             font-weight: 700;
-            color: var(--accent-color);
+            color: var(--accent-gold);
             text-decoration: none;
+            text-shadow: 0 0 12px var(--accent-glow);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 2.2rem;
         }
 
         .nav-links a {
-            color: var(--text-color);
+            color: var(--text-main);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: all 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--accent-color);
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-gold);
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
-        /* Hero Section */
+        /* Hero Section - Bright Artistic Vibe */
         .hero {
             height: 100vh;
             display: flex;
@@ -81,348 +103,851 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 1rem;
-            background: linear-gradient(180deg, rgba(13,13,13,0.3) 0%, rgba(13,13,13,1) 100%), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 0 1.5rem;
+            background: radial-gradient(circle, rgba(229,193,88,0.18) 0%, rgba(18,17,19,0.85) 75%);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4.2rem;
             color: #fff;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+            margin-bottom: 0.8rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-bottom: 2rem;
-            font-weight: 300;
+            font-size: 1.28rem;
+            color: var(--accent-gold);
+            margin-bottom: 2.2rem;
+            font-weight: 400;
+            max-width: 750px;
         }
 
-        .btn {
+        .btn-gold {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.95rem 2.4rem;
             background-color: transparent;
-            color: var(--accent-color);
-            border: 1px solid var(--accent-color);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            transition: all 0.3s ease;
+            border-radius: 3px;
+            transition: all 0.4s ease;
             cursor: pointer;
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        .btn:hover {
-            background-color: var(--accent-color);
+        .btn-gold:hover {
+            background-color: var(--accent-gold);
             color: #000;
+            box-shadow: 0 0 25px rgba(229, 193, 88, 0.7);
+            transform: translateY(-2px);
         }
 
-        /* Sections */
+        /* Page Content Tabs */
+        .page-content {
+            display: none;
+        }
+
+        .page-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         section {
-            padding: 5rem 8%;
+            padding: 6rem 8%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            position: relative;
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.6rem;
+            text-shadow: 0 0 12px var(--accent-glow);
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 3.5rem;
+            font-size: 0.98rem;
         }
 
-        /* About & Statement */
-        .about-container {
+        /* Gallery Filter Tabs */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .filter-btn {
+            background: rgba(26, 25, 29, 0.9);
+            border: 1px solid var(--card-border);
+            color: var(--text-sub);
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(229, 193, 88, 0.18);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Artwork Grid & Cards */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid var(--accent-color);
-            padding: 5px;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            text-align: justify;
-        }
-
-        /* Thesis Section */
-        .thesis-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        .thesis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 2.2rem;
         }
 
         .art-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
         }
 
         .art-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 20px var(--accent-glow);
         }
 
-        .art-img {
+        .art-img-wrap {
+            position: relative;
             width: 100%;
-            height: 260px;
-            object-fit: cover;
-            background-color: #222;
+            height: 290px;
+            background-color: #1a191d;
+            overflow: hidden;
         }
 
-        .art-info {
-            padding: 1.2rem;
+        .art-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .art-card:hover .art-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 0.35rem 0.85rem;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .badge-sold { background: var(--sold-color); color: #fff; }
+        .badge-avail { background: var(--avail-color); color: #000; }
+        .badge-thesis { background: var(--accent-gold); color: #000; }
+
+        .art-details {
+            padding: 1.4rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .art-title {
-            font-size: 1.1rem;
+            font-size: 1.18rem;
             color: #fff;
             margin-bottom: 0.3rem;
+            font-weight: 600;
         }
 
         .art-meta {
-            font-size: 0.8rem;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            font-size: 0.84rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.6rem;
+            font-weight: 500;
         }
 
         .art-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            font-size: 0.86rem;
+            color: var(--text-sub);
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
         }
 
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+        .art-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--card-border);
+            padding-top: 1rem;
+            margin-top: auto;
         }
 
-        /* Contact Section */
-        .contact-container {
-            text-align: center;
-            max-width: 600px;
+        .price-tag {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .btn-sm {
+            padding: 0.45rem 1.1rem;
+            font-size: 0.78rem;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            text-decoration: none;
+            border-radius: 3px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .btn-sm:hover {
+            background-color: var(--accent-gold);
+            color: #000;
+        }
+
+        /* Commission Order Form */
+        .commission-box {
+            background: var(--card-bg);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--card-border);
+            border-radius: 10px;
+            padding: 3rem 8%;
+            max-width: 850px;
             margin: 0 auto;
         }
 
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
+        .category-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 0.8rem;
         }
 
-        /* Footer */
+        .category-item {
+            background: rgba(18, 17, 19, 0.9);
+            border: 1px solid var(--card-border);
+            padding: 0.85rem;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-item input { display: none; }
+        .category-item label { cursor: pointer; color: var(--text-main); font-size: 0.88rem; font-weight: 500; }
+        .category-item:hover, .category-item.selected {
+            border-color: var(--accent-gold);
+            background: rgba(229, 193, 88, 0.2);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.1rem;
+            background-color: rgba(18, 17, 19, 0.95);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+            font-family: inherit;
+        }
+
+        .form-control:focus { outline: none; border-color: var(--accent-gold); }
+
+        /* Achievements Cards */
+        .achieve-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .achieve-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.6rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .achieve-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
+        .achieve-card h4 { color: var(--accent-gold); margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .achieve-card p { font-size: 0.88rem; color: var(--text-sub); }
+
         footer {
             text-align: center;
-            padding: 2rem;
-            background-color: #080808;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.85rem;
+            padding: 2.5rem;
+            background: #0d0c0e;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-sub);
+            font-size: 0.88rem;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .about-container { grid-template-columns: 1fr; }
+        @media (max-width: 868px) {
+            .hero h1 { font-size: 2.8rem; }
             .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Bright Interactive Artistic Gold Particles Canvas -->
+    <canvas id="canvas-bg"></canvas>
+
+    <!-- Navigation Bar - Short Labels -->
     <nav>
-        <a href="#" classbrand-logo">SANA NASEER</a>
+        <a href="#" onclick="showPage('home')" class="brand-logo">SANA NASEER</a>
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#thesis">Thesis Project</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#commission">Commission Work</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+            <li><a href="#" onclick="showPage('gallery')" id="nav-gallery">Gallery</a></li>
+            <li><a href="#about" onclick="showPage('home')">About</a></li>
+            <li><a href="#commission" onclick="showPage('home')">Order</a></li>
+            <li><a href="#achievements" onclick="showPage('home')">Achievements</a></li>
+            <li><a href="#contact" onclick="showPage('home')">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>SANA NASEER</h1>
-        <p>Visual Artist & Contemporary Miniature Painter</p>
-        <a href="#gallery" class="btn">Explore Artworks</a>
-    </header>
-
-    <!-- About Section -->
-    <section id="about">
-        <h2 class="section-title">About the Artist</h2>
-        <p class="section-subtitle">Bachelor of Fine Arts | University of Sargodha</p>
-        <div class="about-container">
-            <img src="https://via.placeholder.com/400x500/161616/c5a059?text=Sana+Naseer+Portrait" alt="Sana Naseer" class="about-img">
-            <div class="about-text">
-                <h3>Artist Statement</h3>
-                <br>
-                <p>I am a visual artist inspired by nature, quiet moments, and the emotions that can be expressed through simple visual forms. My work mainly focuses on realism, where I use oil paints, graphite, charcoal, and gouache to create artworks that feel calm, soft, and emotionally connected. I enjoy observing natural details, light, textures, and expressions, and try to bring that same feeling into my paintings and drawings.</p>
-                <p>My artistic practice moves between realistic, symbolic, and sometimes abstract styles, depending on the idea or mood behind the work. I am especially drawn to balanced compositions and subtle color palettes that create a peaceful atmosphere for the viewer. Alongside paintings and commissioned portraits, I specialize in contemporary miniature art, calligraphy, wall murals, and sculpture.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Thesis Section -->
-    <section id="thesis" style="background-color: #111;">
-        <h2 class="section-title">Final Thesis Project</h2>
-        <p class="section-subtitle">Gouache on Wasli | Miniature Painting</p>
+    <!-- ================= PAGE 1: HOME PAGE ================= -->
+    <div id="page-home" class="page-content active">
         
-        <div class="thesis-card">
-            <h3>Decline Beneath The Surface</h3>
-            <p style="color: var(--text-muted); margin-top: 0.5rem;">My thesis explores the concept of the Mughal Empire's decline, using the Crow as a central symbol. Through this work, I represent how power and glory gradually fade away, hidden beneath layers of history. This project combines my skills in symbolism and storytelling to show the silent transition from majesty to decay.</p>
-        </div>
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1>SANA NASEER</h1>
+            <p>Visual Artist & Contemporary Miniature Specialist</p>
+            <p style="font-size: 1rem; color: #d0c8b0; margin-bottom: 2.2rem;">BFA Fine Arts | Wasli Gouache, Realism, Charcoal Portraits & Wall Murals</p>
+            <div style="display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center;">
+                <a href="#" onclick="showPage('gallery')" class="btn-gold">Explore Gallery</a>
+                <a href="#commission" class="btn-gold" style="border-color: #888; color: #eee;">Order Custom Art</a>
+            </div>
+        </header>
 
-        <div class="thesis-grid">
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Decay+Resting+on+Power" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Decay Resting on Power</div>
-                    <div class="art-meta">Gouache on Wasli | 7.5" x 7.5"</div>
-                    <div class="art-desc">Shows acceptance of decline. The Empire had power to act but chose comfort and illusion over responsibility.</div>
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About the Artist</h2>
+            <p class="section-subtitle">Bachelor of Fine Arts — University of Sargodha</p>
+            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: center;">
+                <img src="artist.jpg" alt="Sana Naseer Artist" style="width: 100%; border-radius: 6px; border: 1px solid var(--accent-gold); padding: 6px;">
+                <div>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.5rem;">Artist Statement</h3>
+                    <p style="margin-bottom: 1rem;">I am a visual artist inspired by nature, quiet moments, and deep human emotions. My core practice revolves around <strong>Contemporary Miniature Painting (Gouache on Wasli)</strong>, realistic oil landscapes, charcoal portraiture, calligraphy, and large-scale murals.</p>
+                    <p>Through intricate detail and rich symbolism, my work connects historical techniques with modern concepts, inviting viewers to pause and observe quietly.</p>
                 </div>
             </div>
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=The+Face+of+Authority" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">The Face of Authority</div>
-                    <div class="art-meta">Gouache on Wasli | 8" x 5"</div>
-                    <div class="art-desc">Reflects how physical strength cannot save an empire if its leadership ignores early signs of trouble.</div>
+        </section>
+
+        <!-- Featured Highlights (Home Page Masterpieces) -->
+        <section style="background: rgba(22, 21, 25, 0.7);">
+            <h2 class="section-title">Featured Artworks</h2>
+            <p class="section-subtitle">Highlights from Thesis Series, Oil Paintings & Murals</p>
+
+            <div class="gallery-grid">
+                <!-- Highlight 1: Thesis -->
+                <div class="art-card">
+                    <div class="art-img-wrap">
+                        <img src="thesis_accepted_decline.jpg" alt="The Accepted Decline">
+                        <span class="badge badge-thesis">Thesis Collection</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">The Accepted Decline</div>
+                        <div class="art-meta">Gouache on Wasli | 7.5" x 7.5"</div>
+                        <div class="art-desc">Depicts a Mughal figure calmly holding a crow, symbolizing acceptance of gradual decline.</div>
+                        <div class="art-price-row">
+                            <span class="price-tag">Display Only</span>
+                            <a href="#" onclick="showPage('gallery')" class="btn-sm">View Whole Series</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight 2: Revenge -->
+                <div class="art-card">
+                    <div class="art-img-wrap">
+                        <img src="revenge_oil.jpg" alt="Revenge Oil Painting">
+                        <span class="badge badge-sold">SOLD </span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Revenge</div>
+                        <div class="art-meta">Oil on Canvas | 24" x 24"</div>
+                        <div class="art-desc">Portrayal of inner strength against societal pressure. Sold at Table Talk Auction, Islamabad.</div>
+                        <div class="art-price-row">
+                            <span class="price-tag" style="color: var(--sold-color);">SOLD</span>
+                            <a href="#commission" class="btn-sm">Order Similar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight 3: Forever in Bloom -->
+                <div class="art-card">
+                    <div class="art-img-wrap">
+                        <img src="forever_in_bloom.jpg" alt="Forever in Bloom">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Forever in Bloom</div>
+                        <div class="art-meta">Oil on Canvas | 36" x 24"</div>
+                        <div class="art-desc">Honors the memory of two white kittens surrounded by dreamy flowers and soft hues.</div>
+                        <div class="art-price-row">
+                            <span class="price-tag">PKR 25,000</span>
+                            <a href="https://wa.me/923186709009?text=Hi%20Sana,%20I%20want%20to%20buy%20Forever%20in%20Bloom" class="btn-sm" target="_blank">Buy Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight 4: Sindh Mural -->
+                <div class="art-card">
+                    <div class="art-img-wrap">
+                        <img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural">
+                        <span class="badge badge-sold">Public Project</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Sindh Cultural Wall Mural</div>
+                        <div class="art-meta">Enamel on Wall | 108" x 130"</div>
+                        <div class="art-desc">Large scale public outdoor wall mural representing provincial heritage and landmarks.</div>
+                        <div class="art-price-row">
+                            <span class="price-tag">Commission</span>
+                            <a href="#commission" class="btn-sm">Inquire Mural</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Silent+Downfall" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Unnoticed Decline</div>
-                    <div class="art-meta">Gouache on Wasli | 7" x 4.3"</div>
-                    <div class="art-desc">Reflects how comfort causes powerful systems to ignore surrounding problems, allowing decline to become part of everyday life.</div>
-                </div>
+
+            <div style="text-align: center; margin-top: 3.5rem;">
+                <a href="#" onclick="showPage('gallery')" class="btn-gold">Go To Gallery (All Categories) ➔</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery">
-        <h2 class="section-title">Selected Artworks</h2>
-        <p class="section-subtitle">Paintings, Drawings & Calligraphy</p>
+        <!-- Custom Order Section -->
+        <section id="commission">
+            <h2 class="section-title">Custom Order / Commission</h2>
+            <p class="section-subtitle">Select your preferred art category and message directly on WhatsApp</p>
 
-        <div class="gallery-grid">
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Revenge+Painting" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Revenge</div>
-                    <div class="art-meta">Oil on Canvas | 24" x 24" (Sold)</div>
-                    <div class="art-desc">A portrayal of a woman's inner strength and resilience against societal pressure.</div>
-                </div>
+            <div class="commission-box">
+                <form id="commissionForm" onsubmit="sendWhatsAppOrder(event)">
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="color: var(--accent-gold); font-size: 0.95rem;">1. Select Art Category (Requirement):</label>
+                        <div class="category-options">
+                            <div class="category-item"><input type="checkbox" id="cat1" value="Sketching / Charcoal"><label for="cat1">✏️ Sketching / Charcoal</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat2" value="Calligraphy"><label for="cat2">✒️ Calligraphy</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat3" value="Oil / Acrylic Painting"><label for="cat3">🎨 Oil / Acrylic Painting</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat4" value="Miniature Art (Wasli)"><label for="cat4">🖼️ Miniature Art (Wasli)</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat5" value="Wall Mural Project"><label for="cat5">🏛️ Wall Mural Project</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat6" value="Abstract Art"><label for="cat6">🌀 Abstract Art</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat7" value="Texture Art"><label for="cat7">✨ Texture Art</label></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <label style="color: var(--accent-gold); font-size: 0.95rem;">2. Your Name:</label>
+                        <input type="text" id="clientName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <label style="color: var(--accent-gold); font-size: 0.95rem;">3. Preferred Size / Canvas Dimensions:</label>
+                        <input type="text" id="canvasSize" class="form-control" placeholder="e.g. 18x24 inches, A3, Wall Feet">
+                    </div>
+
+                    <div style="margin-bottom: 1.8rem;">
+                        <label style="color: var(--accent-gold); font-size: 0.95rem;">4. Order Description / Instructions:</label>
+                        <textarea id="artDetails" class="form-control" rows="4" placeholder="Describe reference ideas, details, colors..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-gold" style="width: 100%; font-weight: 600;">Send Order Request to WhatsApp ➔</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" style="background: rgba(22, 21, 25, 0.7);">
+            <h2 class="section-title">Achievements</h2>
+            <p class="section-subtitle">Competitions, Auctions & Professional Milestones</p>
+            <div class="achieve-grid">
+                <div class="achieve-card"><h4>🏆 Winner — Horizon Calligraphy (2024)</h4><p>1st Position in Calligraphy Competition showcasing classical script execution.</p></div>
+                <div class="achieve-card"><h4>🏛️ Table Talk Islamabad Auction</h4><p>Auctioned original fine art paintings at Table Talk gallery event, Islamabad.</p></div>
+                <div class="achieve-card"><h4>💡 UOS Incubation Center Startup</h4><p>Selected artist startup at University of Sargodha Incubation Center (2024–2025).</p></div>
+                <div class="achieve-card"><h4>🎨 Pakistan Longest Art Marathon</h4><p>Completed large canvas art in Pakistan's Longest Art Marathon (2024–2025).</p></div>
+                <div class="achieve-card"><h4>🎖️ Azadi Brigade Commission</h4><p>Executed official large scale commissioned wall art projects (2025).</p></div>
+                <div class="achieve-card"><h4>🖌️ Brighto Paints Collaboration</h4><p>Worked on professional mural projects in collaboration with Brighto Paints (2025).</p></div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <!-- ================= PAGE 2: SEPARATE FULL GALLERY PAGE ================= -->
+    <div id="page-gallery" class="page-content">
+        <section style="padding-top: 8rem;">
+            <h2 class="section-title">Art Gallery</h2>
+            <p class="section-subtitle">Categorized Artworks — Miniatures Series, Paintings, Drawings & Murals</p>
+
+            <!-- Category Filter Tabs -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
+                <button class="filter-btn" onclick="filterGallery('thesis')">Thesis Series </button>
+                <button class="filter-btn" onclick="filterGallery('miniature')">Miniature Art</button>
+                <button class="filter-btn" onclick="filterGallery('painting')">Oil & Acrylic Paintings</button>
+                <button class="filter-btn" onclick="filterGallery('landscape')">Landscapes & Still Life</button>
+                <button class="filter-btn" onclick="filterGallery('portrait')">Portraits & Sketches</button>
+                <button class="filter-btn" onclick="filterGallery('calligraphy')">Calligraphy</button>
+                <button class="filter-btn" onclick="filterGallery('mural')">Wall Murals</button>
             </div>
 
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Forever+In+Bloom" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Forever In Bloom</div>
-                    <div class="art-meta">Oil on Canvas | 36" x 24"</div>
-                    <div class="art-desc">Honors the memory of my two white kittens surrounded by soft pink hues and dreamy flowers.</div>
+            <!-- Complete Artworks Grid -->
+            <div class="gallery-grid" id="full-gallery-grid">
+                
+                <!-- === ALL THESIS ARTWORKS === -->
+                <!-- 1. Thesis Artwork 1 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="thesis_accepted_decline.jpg" alt="The Accepted Decline"><span class="badge badge-thesis">Thesis 1/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">The Accepted Decline</div>
+                        <div class="art-meta">Gouache on Wasli | 7.5" x 7.5" (2025)</div>
+                        <div class="art-desc">Mughal figure holding a crow, showing comfortable acceptance of gradual decline.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Ray+Of+Hope" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Ray of Hope</div>
-                    <div class="art-meta">Oil on Canvas | 24" x 24"</div>
-                    <div class="art-desc">Explores the idea of hope emerging through darkness and overcoming fear.</div>
+                <!-- 2. Thesis Artwork 2 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="decline_resting_on_power.jpg" alt="Resting on Power"><span class="badge badge-thesis">Thesis 2/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Resting on Power</div>
+                        <div class="art-meta">Gouache on Wasli | 5.5" x 9.5" (2025)</div>
+                        <div class="art-desc">Crow resting quietly on a imperial Mughal turban, showing weakness settling within power.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Calligraphy+Work" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Islamic Calligraphy</div>
-                    <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
-                    <div class="art-desc">Inspired by Islamic teachings, presenting Quranic verses through modern compositions.</div>
+                <!-- 3. Thesis Artwork 3 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="strength_under_shadow.jpg" alt="Strength Under Shadow"><span class="badge badge-thesis">Thesis 3/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Strength Under Shadow</div>
+                        <div class="art-meta">Gouache on Wasli | 8" x 5" (2026)</div>
+                        <div class="art-desc">A decorated imperial elephant carrying a crow on its head, showing inner imbalance.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Wall+Mural+Project" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Sindh Cultural Mural</div>
-                    <div class="art-meta">Enamel on Wall | 108" x 130"</div>
-                    <div class="art-desc">Large scale public wall painting executed for official commission projects.</div>
+                <!-- 4. Thesis Artwork 4 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="silent_victory.jpg" alt="The Silent Victory"><span class="badge badge-thesis">Thesis 4/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">The Silent Victory</div>
+                        <div class="art-meta">Gouache on Wasli | 7.3" x 4.4" (2026)</div>
+                        <div class="art-desc">Giant crow soaring triumphantly over tiny, helpless imperial elephants below.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="art-card">
-                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Custom+Portrait" class="art-img">
-                <div class="art-info">
-                    <div class="art-title">Commissioned Charcoal Portrait</div>
-                    <div class="art-meta">Charcoal on Paper | 20" x 30"</div>
-                    <div class="art-desc">Hyper-realistic portraiture focusing on precision, shading, and human expression.</div>
+                <!-- 5. Thesis Artwork 5 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="face_of_authority.jpg" alt="The Face of Authority"><span class="badge badge-thesis">Thesis 5/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">The Face of Authority</div>
+                        <div class="art-meta">Gouache on Wasli | 4.3" x 4.6" (2026)</div>
+                        <div class="art-desc">Crow wearing an imperial turban, showing warning signs becoming the head of leadership.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Commission Work -->
-    <section id="commission" style="background-color: #111;">
-        <h2 class="section-title">Custom Commissions</h2>
-        <p class="section-subtitle">Get a personalized artwork crafted for your space</p>
-        <div class="contact-container">
-            <p>I accept custom commissions for Hand-painted Portraits, Calligraphy, Oil Landscapes, Miniature Artworks, and Large Wall Murals.</p>
-            <br>
-            <a href="https://wa.me/923186709009?text=Hi%20Sana,%20I%20would%20like%20to%20inquire%20about%20a%20custom%20artwork." class="btn" target="_blank">Order Custom Painting</a>
-        </div>
-    </section>
+                <!-- 6. Thesis Artwork 6 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="comfort_before_collapse.jpg" alt="Comfort Before Collapse"><span class="badge badge-thesis">Thesis 6/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Comfort Before Collapse</div>
+                        <div class="art-meta">Gouache on Wasli | 7" x 4.3" (2026)</div>
+                        <div class="art-desc">Emperor relaxing peacefully on court couch surrounded by warning crows.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
+                </div>
+
+                <!-- 7. Thesis Artwork 7 -->
+                <div class="art-card filter-item thesis miniature">
+                    <div class="art-img-wrap"><img src="silent_stain.jpg" alt="The Silent Stain"><span class="badge badge-thesis">Thesis 7/7</span></div>
+                    <div class="art-details">
+                        <div class="art-title">The Silent Stain</div>
+                        <div class="art-meta">Gouache on Wasli | 8" x 10.5" (2026)</div>
+                        <div class="art-desc">Crow feather touching a Mughal floral border, quietly darkening its refinement.</div>
+                        <div class="art-price-row"><span class="price-tag">Display Only</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Inquire</a></div>
+                    </div>
+                </div>
+
+                <!-- === MINIATURE PRACTICE WORKS === -->
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap"><img src="miniature_mughal_emperor.jpg" alt="Mughal Standing Portrait Wasli"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Mughal Courtier Miniature</div>
+                        <div class="art-meta">Gouache on Wasli | 4" x 6"</div>
+                        <div class="art-desc">Classical Mughal miniature study focusing on traditional garments and sword details.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 12,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap"><img src="miniature_border_rendering.jpg" alt="Miniature Floral Border"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Traditional Floral Border Study</div>
+                        <div class="art-meta">Siyah Qalam & Rendering on Wasli | 4" x 5"</div>
+                        <div class="art-desc">Intricate Islamic flora border rendering using fine brush Siyah Qalam method.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 8,500</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <!-- === OIL & ACRYLIC PAINTINGS === -->
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap"><img src="revenge_oil.jpg" alt="Revenge Oil Painting"><span class="badge badge-sold">SOLD (Auction)</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Revenge</div>
+                        <div class="art-meta">Oil on Canvas | 24" x 24"</div>
+                        <div class="art-desc">Portrayal of inner strength against societal pressure. Sold at Table Talk Auction.</div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Commission</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap"><img src="forever_in_bloom.jpg" alt="Forever in Bloom"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Forever in Bloom</div>
+                        <div class="art-meta">Oil on Canvas | 36" x 24"</div>
+                        <div class="art-desc">Honors the memory of two white kittens surrounded by dreamy pink flowers.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 25,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap"><img src="ray_of_hope.jpg" alt="Ray of Hope"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Ray of Hope</div>
+                        <div class="art-meta">Oil on Canvas | 24" x 24"</div>
+                        <div class="art-desc">High contrast exploration of spider-webs revealing a bright landscape inside.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 18,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <!-- === LANDSCAPES & STILL LIFE === -->
+                <div class="art-card filter-item landscape painting">
+                    <div class="art-img-wrap"><img src="landscape_historical.jpg" alt="Historical Landscape"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Katas Raj Temple Landscape</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 12"</div>
+                        <div class="art-desc">Realism outdoor landscape study of historical architecture and sunlight.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 14,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item landscape painting">
+                    <div class="art-img-wrap"><img src="still_life_oil.jpg" alt="Classical Still Life"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Classical Still Life</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Realism study focusing on wine glass reflections, grapes, and drapery.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <!-- === PORTRAITS & SKETCHES === -->
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap"><img src="charcoal_portrait.jpg" alt="Charcoal Portrait"><span class="badge badge-sold">COMMISSIONED</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Realistic Charcoal Portrait</div>
+                        <div class="art-meta">Charcoal on Paper | 20" x 30"</div>
+                        <div class="art-desc">Hyper-realistic expression study with high-contrast shadow rendering.</div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Sketch</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap"><img src="pastel_old_man.jpg" alt="Pastel Turban Study"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Cultural Turban Portrait</div>
+                        <div class="art-meta">Soft Pastels on Boxboard | 11" x 16"</div>
+                        <div class="art-desc">Vibrant pastel portrait depicting traditional orange turban and aged textures.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 5,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <!-- === CALLIGRAPHY === -->
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap"><img src="calligraphy_quran.jpg" alt="Islamic Calligraphy Verse"><span class="badge badge-sold">SOLD (1st Prize)</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Islamic Calligraphy Verse</div>
+                        <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                        <div class="art-desc">1st Position Winner at Horizon Calligraphy Competition 2024.</div>
+                        <div class="art-price-row"><span class="price-tag">From PKR 10,000</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Commission</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap"><img src="calligraphy_gold.jpg" alt="Gold Calligraphy Canvas"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Asma-ul-Husna Gold Canvas</div>
+                        <div class="art-meta">Acrylic & Gold Leaf on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Modern Islamic calligraphy in gold paint on textured dark canvas.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 3,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <!-- === WALL MURALS === -->
+                <div class="art-card filter-item mural">
+                    <div class="art-img-wrap"><img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural"><span class="badge badge-sold">Public Project</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Sindh Cultural Wall Mural</div>
+                        <div class="art-meta">Enamel on Wall | 108" x 130"</div>
+                        <div class="art-desc">Large scale public mural representing provincial heritage and landmarks.</div>
+                        <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item mural">
+                    <div class="art-img-wrap"><img src="lion_mural.jpg" alt="Pop Art Lion Wall Painting"><span class="badge badge-sold">Large Project</span></div>
+                    <div class="art-details">
+                        <div class="art-title">Vibrant Lion Pop-Art Mural</div>
+                        <div class="art-meta">Enamel on Wall | 72" x 60"</div>
+                        <div class="art-desc">Bold high-contrast multi-panel wall painting for energetic modern spaces.</div>
+                        <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get in Touch</h2>
-        <p class="section-subtitle">For inquiries, purchases, or collaborations</p>
-        <div class="contact-container">
+    <section id="contact" style="background: rgba(18, 17, 19, 0.95); text-align: center;">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Direct Contact for Art Collectors, Interviewers & Commissions</p>
+        <div style="max-width: 600px; margin: 0 auto; line-height: 2;">
             <p><strong>Email:</strong> artistsananaseer@gmail.com</p>
-            <p><strong>Phone / WhatsApp:</strong> +92 318 6709009</p>
-            <p><strong>Location:</strong> Sargodha, Pakistan</p>
-            
-            <div class="contact-links">
-                <a href="https://wa.me/923186709009" class="btn" target="_blank">WhatsApp Chat</a>
-                <a href="https://instagram.com/artistsananaseer" class="btn" target="_blank">Instagram Portfolio</a>
+            <p><strong>WhatsApp / Phone:</strong> +92 318 6709009</p>
+            <p><strong>Location:</strong> Sargodha, Punjab, Pakistan</p>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                <a href="https://wa.me/923186709009" class="btn-gold" target="_blank">WhatsApp Chat</a>
+                <a href="https://instagram.com/artistsananaseer" class="btn-gold" target="_blank">Instagram (@artistsananaseer)</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Sana Naseer. All Rights Reserved. Fine Artist & Miniature Specialist.</p>
+        <p>&copy; 2026 Sana Naseer. All Rights Reserved. Contemporary Miniature Specialist & Visual Artist.</p>
     </footer>
 
+    <!-- Interactive Scripts: Page Controller, Filters & Bright Canvas Animation -->
+    <script>
+        // Page Navigation Controller
+        function showPage(pageId) {
+            document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
+            document.getElementById('page-' + pageId).classList.add('active');
+
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            if(pageId === 'home') document.getElementById('nav-home').classList.add('active');
+            if(pageId === 'gallery') document.getElementById('nav-gallery').classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Gallery Filtering Function
+        function filterGallery(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const items = document.querySelectorAll('#full-gallery-grid .filter-item');
+            items.forEach(item => {
+                if(category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // WhatsApp Custom Order Routing
+        function sendWhatsAppOrder(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const size = document.getElementById('canvasSize').value || 'Not specified';
+            const details = document.getElementById('artDetails').value || 'None';
+
+            let selectedCategories = [];
+            document.querySelectorAll('.category-options input:checked').forEach(cb => {
+                selectedCategories.push(cb.value);
+            });
+
+            const catString = selectedCategories.length > 0 ? selectedCategories.join(', ') : 'General Custom Art';
+
+            const message = `*NEW COMMISSION ORDER INQUIRY*%0A%0A` +
+                            `*Client Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Category Selected:* ${encodeURIComponent(catString)}%0A` +
+                            `*Canvas Size:* ${encodeURIComponent(size)}%0A` +
+                            `*Instructions:* ${encodeURIComponent(details)}`;
+
+            window.open(`https://wa.me/923186709009?text=${message}`, '_blank');
+        }
+
+        // Bright Interactive Gold Dust Particles & Ambient Light Waves
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        let width, height, particles;
+
+        function initCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 90; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    radius: Math.random() * 3 + 0.8,
+                    vx: (Math.random() - 0.5) * 0.6,
+                    vy: (Math.random() - 0.5) * 0.6,
+                    alpha: Math.random() * 0.75 + 0.25
+                });
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(229, 193, 88, ${p.alpha})`;
+                ctx.shadowBlur = 14;
+                ctx.shadowColor = '#e5c158';
+                ctx.fill();
+            });
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.addEventListener('resize', initCanvas);
+        initCanvas();
+        animateCanvas();
+    </script>
 </body>
 </html>
