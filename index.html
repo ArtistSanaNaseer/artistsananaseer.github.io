@@ -1,4 +1,74 @@
-font-weight: 700;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Naseer | Visual Artist & Miniature Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121113;
+            --card-bg: rgba(26, 25, 29, 0.88);
+            --card-border: rgba(212, 175, 55, 0.25);
+            --accent-gold: #e5c158;
+            --accent-glow: rgba(229, 193, 88, 0.35);
+            --text-main: #f9f9fb;
+            --text-sub: #c4c4cc;
+            --sold-color: #ef4444;
+            --avail-color: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Bright Interactive Artistic Gold Dust Canvas Background */
+        #canvas-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        h1, h2, h3, h4, .brand-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1.5px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(18, 17, 19, 0.94);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+            padding: 1.1rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.45rem;
+            font-weight: 700;
             color: var(--accent-gold);
             text-decoration: none;
             text-shadow: 0 0 12px var(--accent-glow);
