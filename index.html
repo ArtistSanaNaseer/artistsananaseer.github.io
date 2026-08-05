@@ -1,74 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sana Naseer | Visual Artist & Miniature Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #121113;
-            --card-bg: rgba(26, 25, 29, 0.85);
-            --card-border: rgba(212, 175, 55, 0.25);
-            --accent-gold: #e5c158;
-            --accent-glow: rgba(229, 193, 88, 0.35);
-            --text-main: #f9f9fb;
-            --text-sub: #c4c4cc;
-            --sold-color: #ef4444;
-            --avail-color: #10b981;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Bright & Artistic Gold Animated Dust Canvas Background */
-        #canvas-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            pointer-events: none;
-            opacity: 0.85;
-        }
-
-        h1, h2, h3, h4, .brand-logo {
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1.5px;
-        }
-
-        /* Navigation Bar - Clean & Short Labels */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(18, 17, 19, 0.92);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--card-border);
-            z-index: 1000;
-            padding: 1.1rem 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-logo {
-            font-size: 1.45rem;
-            font-weight: 700;
+font-weight: 700;
             color: var(--accent-gold);
             text-decoration: none;
             text-shadow: 0 0 12px var(--accent-glow);
@@ -95,7 +25,7 @@
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
-        /* Hero Section - Bright Artistic Vibe */
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -122,6 +52,7 @@
             max-width: 750px;
         }
 
+        /* Button Hover Visibility Fix - High Contrast Text */
         .btn-gold {
             display: inline-block;
             padding: 0.95rem 2.4rem;
@@ -133,19 +64,21 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             border-radius: 3px;
-            transition: all 0.4s ease;
+            transition: all 0.35s ease;
             cursor: pointer;
             box-shadow: 0 0 15px var(--accent-glow);
+            font-weight: 600;
         }
 
         .btn-gold:hover {
-            background-color: var(--accent-gold);
-            color: #000;
-            box-shadow: 0 0 25px rgba(229, 193, 88, 0.7);
+            background-color: var(--accent-gold) !important;
+            color: #0b0a0c !important;
+            font-weight: 700 !important;
+            box-shadow: 0 0 25px rgba(229, 193, 88, 0.85);
             transform: translateY(-2px);
         }
 
-        /* Page Content Tabs */
+        /* Page Content Switcher */
         .page-content {
             display: none;
         }
@@ -179,7 +112,7 @@
             font-size: 0.98rem;
         }
 
-        /* Gallery Filter Tabs */
+        /* Gallery Filter Buttons */
         .filter-container {
             display: flex;
             justify-content: center;
@@ -208,7 +141,7 @@
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        /* Artwork Grid & Cards */
+        /* Artwork Cards Grid */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -233,23 +166,32 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 20px var(--accent-glow);
         }
 
+        /* Image Wrap - Fixed Object Fit Contain & Anti-Theft */
         .art-img-wrap {
             position: relative;
             width: 100%;
             height: 290px;
-            background-color: #1a191d;
+            background-color: #141316;
             overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-drag: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
         }
 
         .art-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
             transition: transform 0.6s ease;
+            pointer-events: none;
         }
 
         .art-card:hover .art-img-wrap img {
-            transform: scale(1.06);
+            transform: scale(1.05);
         }
 
         .badge {
@@ -262,6 +204,7 @@
             border-radius: 3px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            z-index: 5;
         }
 
         .badge-sold { background: var(--sold-color); color: #fff; }
@@ -319,15 +262,138 @@
             text-decoration: none;
             border-radius: 3px;
             transition: all 0.3s;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .btn-sm:hover {
-            background-color: var(--accent-gold);
-            color: #000;
+            background-color: var(--accent-gold) !important;
+            color: #0b0a0c !important;
+            font-weight: 700 !important;
         }
 
-        /* Commission Order Form */
+        /* Lightbox Modal Style (Anti-Theft Proxy Enabled) */
+        .art-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(8, 7, 10, 0.95);
+            backdrop-filter: blur(15px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content-wrap {
+            background: rgba(26, 25, 29, 0.96);
+            border: 1px solid var(--accent-gold);
+            border-radius: 10px;
+            max-width: 880px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 2.2rem;
+            position: relative;
+            box-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 20px var(--accent-glow);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            cursor: pointer;
+            transition: transform 0.2s;
+            z-index: 20;
+        }
+
+        .modal-close-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .modal-img-container {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            background: #141316;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            padding: 10px;
+        }
+
+        .modal-img-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            pointer-events: none;
+            -webkit-user-drag: none;
+        }
+
+        .anti-theft-shield {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 10;
+        }
+
+        .watermark-overlay {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.45);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            pointer-events: none;
+            z-index: 11;
+        }
+
+        .modal-details {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .modal-details h3 {
+            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-details-list {
+            list-style: none;
+            margin: 1.2rem 0;
+        }
+
+        .modal-details-list li {
+            font-size: 0.92rem;
+            color: var(--text-sub);
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .modal-details-list li strong {
+            color: var(--accent-gold);
+            min-width: 110px;
+        }
+
+        /* Custom Order Form Box */
         .commission-box {
             background: var(--card-bg);
             backdrop-filter: blur(14px);
@@ -407,15 +473,22 @@
         @media (max-width: 868px) {
             .hero h1 { font-size: 2.8rem; }
             .nav-links { display: none; }
+            .modal-content-wrap { grid-template-columns: 1fr; }
+            .modal-img-container { height: 260px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Bright Interactive Artistic Gold Particles Canvas -->
+    <!-- Bright Interactive Gold Dust Particles Canvas -->
     <canvas id="canvas-bg"></canvas>
 
-    <!-- Navigation Bar - Short Labels -->
+    <!-- Anti-Theft Protection Shield Script for Context Menu -->
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+
+    <!-- Navigation Bar -->
     <nav>
         <a href="#" onclick="showPage('home')" class="brand-logo">SANA NASEER</a>
         <ul class="nav-links">
@@ -447,7 +520,7 @@
             <h2 class="section-title">About the Artist</h2>
             <p class="section-subtitle">Bachelor of Fine Arts — University of Sargodha</p>
             <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: center;">
-                <img src="artist.jpg" alt="Sana Naseer Artist" style="width: 100%; border-radius: 6px; border: 1px solid var(--accent-gold); padding: 6px;">
+                <img src="artist.jpg" alt="Sana Naseer Artist" style="width: 100%; border-radius: 6px; border: 1px solid var(--accent-gold); padding: 6px;" draggable="false" oncontextmenu="return false;">
                 <div>
                     <h3 style="color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.5rem;">Artist Statement</h3>
                     <p style="margin-bottom: 1rem;">I am a visual artist inspired by nature, quiet moments, and deep human emotions. My core practice revolves around <strong>Contemporary Miniature Painting (Gouache on Wasli)</strong>, realistic oil landscapes, charcoal portraiture, calligraphy, and large-scale murals.</p>
@@ -456,16 +529,16 @@
             </div>
         </section>
 
-        <!-- Featured Highlights (Home Page Masterpieces) -->
+        <!-- Featured Highlights (6 Even Cards Grid Fix on Home Page) -->
         <section style="background: rgba(22, 21, 25, 0.7);">
             <h2 class="section-title">Featured Artworks</h2>
-            <p class="section-subtitle">Highlights from Thesis Series, Oil Paintings & Murals</p>
+            <p class="section-subtitle">Curated Highlights from Miniature, Oil & Mural Collections</p>
 
             <div class="gallery-grid">
                 <!-- Highlight 1: Thesis -->
                 <div class="art-card">
-                    <div class="art-img-wrap">
-                        <img src="thesis_accepted_decline.jpg" alt="The Accepted Decline">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_accepted_decline.jpg" alt="The Accepted Decline" draggable="false">
                         <span class="badge badge-thesis">Thesis Collection</span>
                     </div>
                     <div class="art-details">
@@ -474,16 +547,16 @@
                         <div class="art-desc">Depicts a Mughal figure calmly holding a crow, symbolizing acceptance of gradual decline.</div>
                         <div class="art-price-row">
                             <span class="price-tag">Display Only</span>
-                            <a href="#" onclick="showPage('gallery')" class="btn-sm">View Whole Series</a>
+                            <a href="#" onclick="showPage('gallery')" class="btn-sm">View Series</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Highlight 2: Revenge -->
                 <div class="art-card">
-                    <div class="art-img-wrap">
-                        <img src="revenge_oil.jpg" alt="Revenge Oil Painting">
-                        <span class="badge badge-sold">SOLD </span>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="revenge_oil.jpg" alt="Revenge Oil Painting" draggable="false">
+                        <span class="badge badge-sold">SOLD (Auction)</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">Revenge</div>
@@ -498,8 +571,8 @@
 
                 <!-- Highlight 3: Forever in Bloom -->
                 <div class="art-card">
-                    <div class="art-img-wrap">
-                        <img src="forever_in_bloom.jpg" alt="Forever in Bloom">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="forever_in_bloom.jpg" alt="Forever in Bloom" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -515,8 +588,8 @@
 
                 <!-- Highlight 4: Sindh Mural -->
                 <div class="art-card">
-                    <div class="art-img-wrap">
-                        <img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural" draggable="false">
                         <span class="badge badge-sold">Public Project</span>
                     </div>
                     <div class="art-details">
@@ -529,10 +602,44 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Highlight 5: Face of Authority -->
+                <div class="art-card">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_face_of_authority.jpg" alt="The Face of Authority" draggable="false">
+                        <span class="badge badge-thesis">Thesis Collection</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">The Face of Authority</div>
+                        <div class="art-meta">Gouache on Wasli | 4.3" x 4.6"</div>
+                        <div class="art-desc">Crow wearing an imperial turban, showing warning signs becoming the head of leadership.</div>
+                        <div class="art-price-row">
+                            <span class="price-tag">Display Only</span>
+                            <a href="#" onclick="showPage('gallery')" class="btn-sm">View Series</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Highlight 6: Calligraphy Prize Winner -->
+                <div class="art-card">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="calligraphy_quran.jpg" alt="Islamic Calligraphy Verse" draggable="false">
+                        <span class="badge badge-sold">SOLD (1st Prize)</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Islamic Calligraphy Verse</div>
+                        <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                        <div class="art-desc">1st Position Winner at Horizon Calligraphy Competition 2024.</div>
+                        <div class="art-price-row">
+                            <span class="price-tag" style="color:var(--sold-color)">SOLD</span>
+                            <a href="#commission" class="btn-sm">Commission</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div style="text-align: center; margin-top: 3.5rem;">
-                <a href="#" onclick="showPage('gallery')" class="btn-gold">Go To Gallery (All Categories) ➔</a>
+                <a href="#" onclick="showPage('gallery')" class="btn-gold">Go To Full Gallery Page (All Categories) ➔</a>
             </div>
         </section>
 
@@ -597,12 +704,12 @@
     <div id="page-gallery" class="page-content">
         <section style="padding-top: 8rem;">
             <h2 class="section-title">Art Gallery</h2>
-            <p class="section-subtitle">Categorized Artworks — Miniatures Series, Paintings, Drawings & Murals</p>
+            <p class="section-subtitle">Categorized Artworks — All 7 Thesis Miniatures, Paintings, Drawings & Murals</p>
 
             <!-- Category Filter Tabs -->
             <div class="filter-container">
                 <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
-                <button class="filter-btn" onclick="filterGallery('thesis')">Thesis Series </button>
+                <button class="filter-btn" onclick="filterGallery('thesis')">Thesis Series (7 Artworks)</button>
                 <button class="filter-btn" onclick="filterGallery('miniature')">Miniature Art</button>
                 <button class="filter-btn" onclick="filterGallery('painting')">Oil & Acrylic Paintings</button>
                 <button class="filter-btn" onclick="filterGallery('landscape')">Landscapes & Still Life</button>
@@ -614,10 +721,13 @@
             <!-- Complete Artworks Grid -->
             <div class="gallery-grid" id="full-gallery-grid">
                 
-                <!-- === ALL THESIS ARTWORKS === -->
+                <!-- === ALL 7 THESIS ARTWORKS === -->
                 <!-- 1. Thesis Artwork 1 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="thesis_accepted_decline.jpg" alt="The Accepted Decline"><span class="badge badge-thesis">Thesis 1/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_accepted_decline.jpg" alt="The Accepted Decline" draggable="false">
+                        <span class="badge badge-thesis">Thesis 1/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">The Accepted Decline</div>
                         <div class="art-meta">Gouache on Wasli | 7.5" x 7.5" (2025)</div>
@@ -628,7 +738,10 @@
 
                 <!-- 2. Thesis Artwork 2 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="decline_resting_on_power.jpg" alt="Resting on Power"><span class="badge badge-thesis">Thesis 2/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_resting_on_power.jpg" alt="Resting on Power" draggable="false">
+                        <span class="badge badge-thesis">Thesis 2/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Resting on Power</div>
                         <div class="art-meta">Gouache on Wasli | 5.5" x 9.5" (2025)</div>
@@ -639,7 +752,10 @@
 
                 <!-- 3. Thesis Artwork 3 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="strength_under_shadow.jpg" alt="Strength Under Shadow"><span class="badge badge-thesis">Thesis 3/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_strength_under_shadow.jpg" alt="Strength Under Shadow" draggable="false">
+                        <span class="badge badge-thesis">Thesis 3/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Strength Under Shadow</div>
                         <div class="art-meta">Gouache on Wasli | 8" x 5" (2026)</div>
@@ -650,7 +766,10 @@
 
                 <!-- 4. Thesis Artwork 4 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="silent_victory.jpg" alt="The Silent Victory"><span class="badge badge-thesis">Thesis 4/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_silent_victory.jpg" alt="The Silent Victory" draggable="false">
+                        <span class="badge badge-thesis">Thesis 4/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">The Silent Victory</div>
                         <div class="art-meta">Gouache on Wasli | 7.3" x 4.4" (2026)</div>
@@ -661,7 +780,10 @@
 
                 <!-- 5. Thesis Artwork 5 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="face_of_authority.jpg" alt="The Face of Authority"><span class="badge badge-thesis">Thesis 5/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_face_of_authority.jpg" alt="The Face of Authority" draggable="false">
+                        <span class="badge badge-thesis">Thesis 5/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">The Face of Authority</div>
                         <div class="art-meta">Gouache on Wasli | 4.3" x 4.6" (2026)</div>
@@ -672,7 +794,10 @@
 
                 <!-- 6. Thesis Artwork 6 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="comfort_before_collapse.jpg" alt="Comfort Before Collapse"><span class="badge badge-thesis">Thesis 6/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_comfort_before_collapse.jpg" alt="Comfort Before Collapse" draggable="false">
+                        <span class="badge badge-thesis">Thesis 6/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Comfort Before Collapse</div>
                         <div class="art-meta">Gouache on Wasli | 7" x 4.3" (2026)</div>
@@ -683,7 +808,10 @@
 
                 <!-- 7. Thesis Artwork 7 -->
                 <div class="art-card filter-item thesis miniature">
-                    <div class="art-img-wrap"><img src="silent_stain.jpg" alt="The Silent Stain"><span class="badge badge-thesis">Thesis 7/7</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thesis_silent_stain.jpg" alt="The Silent Stain" draggable="false">
+                        <span class="badge badge-thesis">Thesis 7/7</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">The Silent Stain</div>
                         <div class="art-meta">Gouache on Wasli | 8" x 10.5" (2026)</div>
@@ -694,7 +822,10 @@
 
                 <!-- === MINIATURE PRACTICE WORKS === -->
                 <div class="art-card filter-item miniature">
-                    <div class="art-img-wrap"><img src="miniature_mughal_emperor.jpg" alt="Mughal Standing Portrait Wasli"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="miniature_mughal_emperor.jpg" alt="Mughal Courtier Miniature" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Mughal Courtier Miniature</div>
                         <div class="art-meta">Gouache on Wasli | 4" x 6"</div>
@@ -704,7 +835,10 @@
                 </div>
 
                 <div class="art-card filter-item miniature">
-                    <div class="art-img-wrap"><img src="miniature_border_rendering.jpg" alt="Miniature Floral Border"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="miniature_border_rendering.jpg" alt="Traditional Floral Border Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Traditional Floral Border Study</div>
                         <div class="art-meta">Siyah Qalam & Rendering on Wasli | 4" x 5"</div>
@@ -715,7 +849,10 @@
 
                 <!-- === OIL & ACRYLIC PAINTINGS === -->
                 <div class="art-card filter-item painting">
-                    <div class="art-img-wrap"><img src="revenge_oil.jpg" alt="Revenge Oil Painting"><span class="badge badge-sold">SOLD (Auction)</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="revenge_oil.jpg" alt="Revenge Oil Painting" draggable="false">
+                        <span class="badge badge-sold">SOLD (Auction)</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Revenge</div>
                         <div class="art-meta">Oil on Canvas | 24" x 24"</div>
@@ -725,7 +862,10 @@
                 </div>
 
                 <div class="art-card filter-item painting">
-                    <div class="art-img-wrap"><img src="forever_in_bloom.jpg" alt="Forever in Bloom"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="forever_in_bloom.jpg" alt="Forever in Bloom" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Forever in Bloom</div>
                         <div class="art-meta">Oil on Canvas | 36" x 24"</div>
@@ -735,7 +875,10 @@
                 </div>
 
                 <div class="art-card filter-item painting">
-                    <div class="art-img-wrap"><img src="ray_of_hope.jpg" alt="Ray of Hope"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="ray_of_hope.jpg" alt="Ray of Hope" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Ray of Hope</div>
                         <div class="art-meta">Oil on Canvas | 24" x 24"</div>
@@ -746,9 +889,12 @@
 
                 <!-- === LANDSCAPES & STILL LIFE === -->
                 <div class="art-card filter-item landscape painting">
-                    <div class="art-img-wrap"><img src="landscape_historical.jpg" alt="Historical Landscape"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="landscape_historical.jpg" alt="Rohtas Fort Landscape" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
-                        <div class="art-title">Katas Raj Temple Landscape</div>
+                        <div class="art-title">Rohtas Fort Landscape</div>
                         <div class="art-meta">Oil on Canvas | 18" x 12"</div>
                         <div class="art-desc">Realism outdoor landscape study of historical architecture and sunlight.</div>
                         <div class="art-price-row"><span class="price-tag">PKR 14,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
@@ -756,7 +902,10 @@
                 </div>
 
                 <div class="art-card filter-item landscape painting">
-                    <div class="art-img-wrap"><img src="still_life_oil.jpg" alt="Classical Still Life"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="still_life_oil.jpg" alt="Classical Still Life" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Classical Still Life</div>
                         <div class="art-meta">Oil on Canvas | 18" x 24"</div>
@@ -767,49 +916,64 @@
 
                 <!-- === PORTRAITS & SKETCHES === -->
                 <div class="art-card filter-item portrait">
-                    <div class="art-img-wrap"><img src="charcoal_portrait.jpg" alt="Charcoal Portrait"><span class="badge badge-sold">COMMISSIONED</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="charcoal_portrait.jpg" alt="Realistic Charcoal Portrait" draggable="false">
+                        <span class="badge badge-sold">COMMISSIONED</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Realistic Charcoal Portrait</div>
                         <div class="art-meta">Charcoal on Paper | 20" x 30"</div>
                         <div class="art-desc">Hyper-realistic expression study with high-contrast shadow rendering.</div>
-                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Sketch</a></div>
+                        <div class="art-price-row"><span class="price-tag">From PKR 8,000</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Sketch</a></div>
                     </div>
                 </div>
 
                 <div class="art-card filter-item portrait">
-                    <div class="art-img-wrap"><img src="pastel_old_man.jpg" alt="Pastel Turban Study"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="pastel_old_man.jpg" alt="Cultural Turban Portrait" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Cultural Turban Portrait</div>
                         <div class="art-meta">Soft Pastels on Boxboard | 11" x 16"</div>
                         <div class="art-desc">Vibrant pastel portrait depicting traditional orange turban and aged textures.</div>
-                        <div class="art-price-row"><span class="price-tag">PKR 5,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                        <div class="art-price-row"><span class="price-tag">PKR 10,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
                     </div>
                 </div>
 
                 <!-- === CALLIGRAPHY === -->
                 <div class="art-card filter-item calligraphy">
-                    <div class="art-img-wrap"><img src="calligraphy_quran.jpg" alt="Islamic Calligraphy Verse"><span class="badge badge-sold">SOLD (1st Prize)</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="calligraphy_quran.jpg" alt="Islamic Calligraphy Verse" draggable="false">
+                        <span class="badge badge-sold">SOLD (1st Prize)</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Islamic Calligraphy Verse</div>
                         <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
                         <div class="art-desc">1st Position Winner at Horizon Calligraphy Competition 2024.</div>
-                        <div class="art-price-row"><span class="price-tag">From PKR 10,000</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Commission</a></div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Commission</a></div>
                     </div>
                 </div>
 
                 <div class="art-card filter-item calligraphy">
-                    <div class="art-img-wrap"><img src="calligraphy_gold.jpg" alt="Gold Calligraphy Canvas"><span class="badge badge-avail">AVAILABLE</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="calligraphy_gold.jpg" alt="Asma-ul-Husna Gold Canvas" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Asma-ul-Husna Gold Canvas</div>
                         <div class="art-meta">Acrylic & Gold Leaf on Canvas | 12" x 12"</div>
                         <div class="art-desc">Modern Islamic calligraphy in gold paint on textured dark canvas.</div>
-                        <div class="art-price-row"><span class="price-tag">PKR 3,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                        <div class="art-price-row"><span class="price-tag">PKR 7,500</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
                     </div>
                 </div>
 
                 <!-- === WALL MURALS === -->
                 <div class="art-card filter-item mural">
-                    <div class="art-img-wrap"><img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural"><span class="badge badge-sold">Public Project</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural" draggable="false">
+                        <span class="badge badge-sold">Public Project</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Sindh Cultural Wall Mural</div>
                         <div class="art-meta">Enamel on Wall | 108" x 130"</div>
@@ -819,10 +983,13 @@
                 </div>
 
                 <div class="art-card filter-item mural">
-                    <div class="art-img-wrap"><img src="lion_mural.jpg" alt="Pop Art Lion Wall Painting"><span class="badge badge-sold">Large Project</span></div>
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="lion_mural.jpg" alt="Vibrant Lion Pop-Art Mural" draggable="false">
+                        <span class="badge badge-sold">Large Project</span>
+                    </div>
                     <div class="art-details">
                         <div class="art-title">Vibrant Lion Pop-Art Mural</div>
-                        <div class="art-meta">Enamel on Wall | 72" x 60"</div>
+                        <div class="art-meta">Enamel on Wall | 240" x 96"</div>
                         <div class="art-desc">Bold high-contrast multi-panel wall painting for energetic modern spaces.</div>
                         <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
                     </div>
@@ -851,9 +1018,34 @@
         <p>&copy; 2026 Sana Naseer. All Rights Reserved. Contemporary Miniature Specialist & Visual Artist.</p>
     </footer>
 
-    <!-- Interactive Scripts: Page Controller, Filters & Bright Canvas Animation -->
+    <!-- Lightbox Modal Popup with Proxy Anti-Theft Shield -->
+    <div id="artModal" class="art-modal" onclick="closeModalOnOutsideClick(event)">
+        <div class="modal-content-wrap">
+            <span class="modal-close-btn" onclick="closeArtModal()">&times;</span>
+            <div class="modal-img-container" oncontextmenu="return false;">
+                <div class="anti-theft-shield" oncontextmenu="return false;"></div>
+                <img id="modalImg" src="" alt="Artwork Preview" draggable="false" oncontextmenu="return false;">
+                <div class="watermark-overlay">© Sana Naseer Fine Art</div>
+            </div>
+            <div class="modal-details">
+                <div>
+                    <h3 id="modalTitle">Artwork Title</h3>
+                    <ul class="modal-details-list">
+                        <li><strong>Medium:</strong> <span id="modalMedium">Gouache on Wasli</span></li>
+                        <li><strong>Dimensions:</strong> <span id="modalSize">8" x 10"</span></li>
+                        <li><strong>Status:</strong> <span id="modalStatus">Available</span></li>
+                        <li><strong>Price Tag:</strong> <span id="modalPrice">PKR 15,000</span></li>
+                        <li><strong>Description:</strong> <span id="modalDesc">Artwork details...</span></li>
+                    </ul>
+                </div>
+                <a id="modalOrderBtn" href="#" class="btn-gold" target="_blank" style="text-align: center; width: 100%;">Order / Inquire via WhatsApp ➔</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts: Navigation, Gallery Filter, WhatsApp Routing, Modal Popup & Bright Particles Animation -->
     <script>
-        // Page Navigation Controller
+        // Page Controller
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
@@ -865,7 +1057,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Gallery Filtering Function
+        // Gallery Filter Controller
         function filterGallery(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
@@ -878,6 +1070,48 @@
                     item.style.display = 'none';
                 }
             });
+        }
+
+        // Modal Popup Handler with Bullet Points
+        function openArtModal(element) {
+            const card = element.closest('.art-card');
+            const imgSrc = card.querySelector('.art-img-wrap img').src;
+            const title = card.querySelector('.art-title').innerText;
+            const meta = card.querySelector('.art-meta').innerText;
+            const desc = card.querySelector('.art-desc').innerText;
+            const priceTag = card.querySelector('.price-tag').innerText;
+            const badge = card.querySelector('.badge') ? card.querySelector('.badge').innerText : 'Available';
+
+            let medium = meta;
+            let size = "Standard";
+            if (meta.includes('|')) {
+                const parts = meta.split('|');
+                medium = parts[0].trim();
+                size = parts[1].trim();
+            }
+
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalMedium').innerText = medium;
+            document.getElementById('modalSize').innerText = size;
+            document.getElementById('modalStatus').innerText = badge;
+            document.getElementById('modalPrice').innerText = priceTag;
+            document.getElementById('modalDesc').innerText = desc;
+
+            const waMsg = `Hi Sana, I am interested in your artwork: ${title} (${medium}, ${size})`;
+            document.getElementById('modalOrderBtn').href = `https://wa.me/923186709009?text=${encodeURIComponent(waMsg)}`;
+
+            document.getElementById('artModal').style.display = 'flex';
+        }
+
+        function closeArtModal() {
+            document.getElementById('artModal').style.display = 'none';
+        }
+
+        function closeModalOnOutsideClick(event) {
+            if (event.target.id === 'artModal') {
+                closeArtModal();
+            }
         }
 
         // WhatsApp Custom Order Routing
@@ -903,7 +1137,7 @@
             window.open(`https://wa.me/923186709009?text=${message}`, '_blank');
         }
 
-        // Bright Interactive Gold Dust Particles & Ambient Light Waves
+        // Bright Interactive Gold Dust Particles Canvas
         const canvas = document.getElementById('canvas-bg');
         const ctx = canvas.getContext('2d');
         let width, height, particles;
