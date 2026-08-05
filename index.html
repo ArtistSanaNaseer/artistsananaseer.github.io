@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sana Naseer | Fine Artist & Miniature Painter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #161616;
+            --accent-color: #c5a059;
+            --text-color: #e5e5e5;
+            --text-muted: #a0a0a0;
+            --border-color: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .brand-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(13, 13, 13, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(180deg, rgba(13,13,13,0.3) 0%, rgba(13,13,13,1) 100%), url('https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: #000;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
+        }
+
+        /* About & Statement */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
+            padding: 5px;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        /* Thesis Section */
+        .thesis-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .thesis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .art-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .art-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .art-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            background-color: #222;
+        }
+
+        .art-info {
+            padding: 1.2rem;
+        }
+
+        .art-title {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .art-meta {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .art-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #080808;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .about-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" classbrand-logo">SANA NASEER</a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#thesis">Thesis Project</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#commission">Commission Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>SANA NASEER</h1>
+        <p>Visual Artist & Contemporary Miniature Painter</p>
+        <a href="#gallery" class="btn">Explore Artworks</a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About the Artist</h2>
+        <p class="section-subtitle">Bachelor of Fine Arts | University of Sargodha</p>
+        <div class="about-container">
+            <img src="https://via.placeholder.com/400x500/161616/c5a059?text=Sana+Naseer+Portrait" alt="Sana Naseer" class="about-img">
+            <div class="about-text">
+                <h3>Artist Statement</h3>
+                <br>
+                <p>I am a visual artist inspired by nature, quiet moments, and the emotions that can be expressed through simple visual forms. My work mainly focuses on realism, where I use oil paints, graphite, charcoal, and gouache to create artworks that feel calm, soft, and emotionally connected. I enjoy observing natural details, light, textures, and expressions, and try to bring that same feeling into my paintings and drawings.</p>
+                <p>My artistic practice moves between realistic, symbolic, and sometimes abstract styles, depending on the idea or mood behind the work. I am especially drawn to balanced compositions and subtle color palettes that create a peaceful atmosphere for the viewer. Alongside paintings and commissioned portraits, I specialize in contemporary miniature art, calligraphy, wall murals, and sculpture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thesis Section -->
+    <section id="thesis" style="background-color: #111;">
+        <h2 class="section-title">Final Thesis Project</h2>
+        <p class="section-subtitle">Gouache on Wasli | Miniature Painting</p>
+        
+        <div class="thesis-card">
+            <h3>Decline Beneath The Surface</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">My thesis explores the concept of the Mughal Empire's decline, using the Crow as a central symbol. Through this work, I represent how power and glory gradually fade away, hidden beneath layers of history. This project combines my skills in symbolism and storytelling to show the silent transition from majesty to decay.</p>
+        </div>
+
+        <div class="thesis-grid">
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Decay+Resting+on+Power" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Decay Resting on Power</div>
+                    <div class="art-meta">Gouache on Wasli | 7.5" x 7.5"</div>
+                    <div class="art-desc">Shows acceptance of decline. The Empire had power to act but chose comfort and illusion over responsibility.</div>
+                </div>
+            </div>
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=The+Face+of+Authority" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">The Face of Authority</div>
+                    <div class="art-meta">Gouache on Wasli | 8" x 5"</div>
+                    <div class="art-desc">Reflects how physical strength cannot save an empire if its leadership ignores early signs of trouble.</div>
+                </div>
+            </div>
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Silent+Downfall" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Unnoticed Decline</div>
+                    <div class="art-meta">Gouache on Wasli | 7" x 4.3"</div>
+                    <div class="art-desc">Reflects how comfort causes powerful systems to ignore surrounding problems, allowing decline to become part of everyday life.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2 class="section-title">Selected Artworks</h2>
+        <p class="section-subtitle">Paintings, Drawings & Calligraphy</p>
+
+        <div class="gallery-grid">
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Revenge+Painting" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Revenge</div>
+                    <div class="art-meta">Oil on Canvas | 24" x 24" (Sold)</div>
+                    <div class="art-desc">A portrayal of a woman's inner strength and resilience against societal pressure.</div>
+                </div>
+            </div>
+
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Forever+In+Bloom" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Forever In Bloom</div>
+                    <div class="art-meta">Oil on Canvas | 36" x 24"</div>
+                    <div class="art-desc">Honors the memory of my two white kittens surrounded by soft pink hues and dreamy flowers.</div>
+                </div>
+            </div>
+
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Ray+Of+Hope" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Ray of Hope</div>
+                    <div class="art-meta">Oil on Canvas | 24" x 24"</div>
+                    <div class="art-desc">Explores the idea of hope emerging through darkness and overcoming fear.</div>
+                </div>
+            </div>
+
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Calligraphy+Work" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Islamic Calligraphy</div>
+                    <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                    <div class="art-desc">Inspired by Islamic teachings, presenting Quranic verses through modern compositions.</div>
+                </div>
+            </div>
+
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Wall+Mural+Project" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Sindh Cultural Mural</div>
+                    <div class="art-meta">Enamel on Wall | 108" x 130"</div>
+                    <div class="art-desc">Large scale public wall painting executed for official commission projects.</div>
+                </div>
+            </div>
+
+            <div class="art-card">
+                <img src="https://via.placeholder.com/400x300/161616/c5a059?text=Custom+Portrait" class="art-img">
+                <div class="art-info">
+                    <div class="art-title">Commissioned Charcoal Portrait</div>
+                    <div class="art-meta">Charcoal on Paper | 20" x 30"</div>
+                    <div class="art-desc">Hyper-realistic portraiture focusing on precision, shading, and human expression.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Work -->
+    <section id="commission" style="background-color: #111;">
+        <h2 class="section-title">Custom Commissions</h2>
+        <p class="section-subtitle">Get a personalized artwork crafted for your space</p>
+        <div class="contact-container">
+            <p>I accept custom commissions for Hand-painted Portraits, Calligraphy, Oil Landscapes, Miniature Artworks, and Large Wall Murals.</p>
+            <br>
+            <a href="https://wa.me/923186709009?text=Hi%20Sana,%20I%20would%20like%20to%20inquire%20about%20a%20custom%20artwork." class="btn" target="_blank">Order Custom Painting</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">For inquiries, purchases, or collaborations</p>
+        <div class="contact-container">
+            <p><strong>Email:</strong> artistsananaseer@gmail.com</p>
+            <p><strong>Phone / WhatsApp:</strong> +92 318 6709009</p>
+            <p><strong>Location:</strong> Sargodha, Pakistan</p>
+            
+            <div class="contact-links">
+                <a href="https://wa.me/923186709009" class="btn" target="_blank">WhatsApp Chat</a>
+                <a href="https://instagram.com/artistsananaseer" class="btn" target="_blank">Instagram Portfolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sana Naseer. All Rights Reserved. Fine Artist & Miniature Specialist.</p>
+    </footer>
+
+</body>
+</html>
