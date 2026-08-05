@@ -51,23 +51,23 @@
             letter-spacing: 1.5px;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar - Mobile Responsive */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(18, 17, 19, 0.94);
+            background: rgba(18, 17, 19, 0.95);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--card-border);
             z-index: 1000;
-            padding: 1.1rem 6%;
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .brand-logo {
-            font-size: 1.45rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--accent-gold);
             text-decoration: none;
@@ -77,16 +77,16 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.2rem;
+            gap: 1.8rem;
         }
 
         .nav-links a {
             color: var(--text-main);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             transition: all 0.3s;
         }
 
@@ -95,44 +95,51 @@
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
-        /* Hero Section */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.6rem;
+            color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        /* Hero Section - Mobile Responsive */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 1.5rem;
+            padding: 6rem 1.2rem 2rem 1.2rem;
             background: radial-gradient(circle, rgba(229,193,88,0.18) 0%, rgba(18,17,19,0.85) 75%);
         }
 
         .hero h1 {
-            font-size: 4.2rem;
+            font-size: 3.8rem;
             color: #fff;
             margin-bottom: 0.8rem;
             text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.28rem;
+            font-size: 1.2rem;
             color: var(--accent-gold);
-            margin-bottom: 2.2rem;
+            margin-bottom: 2rem;
             font-weight: 400;
             max-width: 750px;
         }
 
-        /* Button Hover Visibility Fix - High Contrast Text */
         .btn-gold {
             display: inline-block;
-            padding: 0.95rem 2.4rem;
+            padding: 0.9rem 2.2rem;
             background-color: transparent;
             color: var(--accent-gold);
             border: 1px solid var(--accent-gold);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             border-radius: 3px;
             transition: all 0.35s ease;
             cursor: pointer;
@@ -148,7 +155,6 @@
             transform: translateY(-2px);
         }
 
-        /* Page Content Switcher */
         .page-content {
             display: none;
         }
@@ -164,12 +170,12 @@
         }
 
         section {
-            padding: 6rem 8%;
+            padding: 5rem 6%;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             color: var(--accent-gold);
             margin-bottom: 0.6rem;
             text-shadow: 0 0 12px var(--accent-glow);
@@ -178,28 +184,28 @@
         .section-subtitle {
             text-align: center;
             color: var(--text-sub);
-            margin-bottom: 3.5rem;
-            font-size: 0.98rem;
+            margin-bottom: 3rem;
+            font-size: 0.95rem;
         }
 
-        /* Gallery Filter Buttons */
+        /* Filter Controls */
         .filter-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-bottom: 3.5rem;
+            gap: 0.6rem;
+            margin-bottom: 3rem;
         }
 
         .filter-btn {
             background: rgba(26, 25, 29, 0.9);
             border: 1px solid var(--card-border);
             color: var(--text-sub);
-            padding: 0.7rem 1.5rem;
+            padding: 0.65rem 1.2rem;
             border-radius: 30px;
             cursor: pointer;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
+            font-size: 0.82rem;
+            letter-spacing: 0.8px;
             font-weight: 500;
             transition: all 0.3s;
         }
@@ -211,11 +217,11 @@
             box-shadow: 0 0 15px var(--accent-glow);
         }
 
-        /* Artwork Cards Grid */
+        /* Artwork Cards Grid - Mobile Optimized */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-            gap: 2.2rem;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.8rem;
         }
 
         .art-card {
@@ -231,16 +237,16 @@
         }
 
         .art-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--accent-gold);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 20px var(--accent-glow);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7), 0 0 15px var(--accent-glow);
         }
 
-        /* Image Wrap - Fixed Object Fit Contain & Anti-Theft */
+        /* Image Wrap with Contain Aspect Ratio */
         .art-img-wrap {
             position: relative;
             width: 100%;
-            height: 290px;
+            height: 270px;
             background-color: #141316;
             overflow: hidden;
             cursor: pointer;
@@ -249,31 +255,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 12px;
         }
 
         .art-img-wrap img {
             max-width: 100%;
             max-height: 100%;
             object-fit: contain;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
             pointer-events: none;
         }
 
         .art-card:hover .art-img-wrap img {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
         .badge {
             position: absolute;
-            top: 12px;
-            right: 12px;
-            font-size: 0.72rem;
+            top: 10px;
+            right: 10px;
+            font-size: 0.68rem;
             font-weight: 700;
-            padding: 0.35rem 0.85rem;
+            padding: 0.3rem 0.75rem;
             border-radius: 3px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             z-index: 5;
         }
 
@@ -282,30 +288,30 @@
         .badge-thesis { background: var(--accent-gold); color: #000; }
 
         .art-details {
-            padding: 1.4rem;
+            padding: 1.2rem;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .art-title {
-            font-size: 1.18rem;
+            font-size: 1.12rem;
             color: #fff;
             margin-bottom: 0.3rem;
             font-weight: 600;
         }
 
         .art-meta {
-            font-size: 0.84rem;
+            font-size: 0.82rem;
             color: var(--accent-gold);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.5rem;
             font-weight: 500;
         }
 
         .art-desc {
-            font-size: 0.86rem;
+            font-size: 0.85rem;
             color: var(--text-sub);
-            margin-bottom: 1.2rem;
+            margin-bottom: 1rem;
             flex-grow: 1;
         }
 
@@ -314,19 +320,19 @@
             justify-content: space-between;
             align-items: center;
             border-top: 1px solid var(--card-border);
-            padding-top: 1rem;
+            padding-top: 0.8rem;
             margin-top: auto;
         }
 
         .price-tag {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #fff;
         }
 
         .btn-sm {
-            padding: 0.45rem 1.1rem;
-            font-size: 0.78rem;
+            padding: 0.4rem 1rem;
+            font-size: 0.76rem;
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
             text-decoration: none;
@@ -341,7 +347,7 @@
             font-weight: 700 !important;
         }
 
-        /* Lightbox Modal Style (Anti-Theft Proxy Enabled) */
+        /* Lightbox Modal Style */
         .art-modal {
             display: none;
             position: fixed;
@@ -354,29 +360,29 @@
             z-index: 2000;
             justify-content: center;
             align-items: center;
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .modal-content-wrap {
-            background: rgba(26, 25, 29, 0.96);
+            background: rgba(26, 25, 29, 0.98);
             border: 1px solid var(--accent-gold);
             border-radius: 10px;
-            max-width: 880px;
+            max-width: 860px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            padding: 2.2rem;
+            gap: 1.8rem;
+            padding: 2rem;
             position: relative;
             box-shadow: 0 0 35px rgba(0,0,0,0.9), 0 0 20px var(--accent-glow);
         }
 
         .modal-close-btn {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 12px;
+            right: 18px;
             font-size: 2.2rem;
             color: var(--accent-gold);
             cursor: pointer;
@@ -391,7 +397,7 @@
         .modal-img-container {
             position: relative;
             width: 100%;
-            height: 380px;
+            height: 350px;
             background: #141316;
             border-radius: 6px;
             overflow: hidden;
@@ -422,9 +428,9 @@
 
         .watermark-overlay {
             position: absolute;
-            bottom: 10px;
-            right: 15px;
-            font-size: 0.8rem;
+            bottom: 8px;
+            right: 12px;
+            font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.45);
             font-family: 'Cinzel', serif;
             letter-spacing: 1px;
@@ -440,19 +446,19 @@
 
         .modal-details h3 {
             color: #fff;
-            font-size: 1.6rem;
+            font-size: 1.45rem;
             margin-bottom: 0.5rem;
         }
 
         .modal-details-list {
             list-style: none;
-            margin: 1.2rem 0;
+            margin: 1rem 0;
         }
 
         .modal-details-list li {
-            font-size: 0.92rem;
+            font-size: 0.88rem;
             color: var(--text-sub);
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.6rem;
             display: flex;
             align-items: flex-start;
             gap: 0.5rem;
@@ -460,7 +466,7 @@
 
         .modal-details-list li strong {
             color: var(--accent-gold);
-            min-width: 110px;
+            min-width: 100px;
         }
 
         /* Custom Order Form Box */
@@ -469,22 +475,22 @@
             backdrop-filter: blur(14px);
             border: 1px solid var(--card-border);
             border-radius: 10px;
-            padding: 3rem 8%;
+            padding: 2.5rem 6%;
             max-width: 850px;
             margin: 0 auto;
         }
 
         .category-options {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.8rem;
             margin-top: 0.8rem;
         }
 
         .category-item {
             background: rgba(18, 17, 19, 0.9);
             border: 1px solid var(--card-border);
-            padding: 0.85rem;
+            padding: 0.8rem;
             border-radius: 6px;
             text-align: center;
             cursor: pointer;
@@ -492,7 +498,7 @@
         }
 
         .category-item input { display: none; }
-        .category-item label { cursor: pointer; color: var(--text-main); font-size: 0.88rem; font-weight: 500; }
+        .category-item label { cursor: pointer; color: var(--text-main); font-size: 0.85rem; font-weight: 500; }
         .category-item:hover, .category-item.selected {
             border-color: var(--accent-gold);
             background: rgba(229, 193, 88, 0.2);
@@ -501,12 +507,12 @@
 
         .form-control {
             width: 100%;
-            padding: 0.9rem 1.1rem;
+            padding: 0.85rem 1rem;
             background-color: rgba(18, 17, 19, 0.95);
             border: 1px solid var(--card-border);
             color: #fff;
             border-radius: 6px;
-            margin-top: 0.5rem;
+            margin-top: 0.4rem;
             font-family: inherit;
         }
 
@@ -515,36 +521,81 @@
         /* Achievements Cards */
         .achieve-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.4rem;
         }
 
         .achieve-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            padding: 1.6rem;
+            padding: 1.4rem;
             border-radius: 8px;
             transition: transform 0.3s;
         }
 
-        .achieve-card:hover { transform: translateY(-5px); border-color: var(--accent-gold); }
-        .achieve-card h4 { color: var(--accent-gold); margin-bottom: 0.5rem; font-size: 1.1rem; }
-        .achieve-card p { font-size: 0.88rem; color: var(--text-sub); }
+        .achieve-card:hover { transform: translateY(-4px); border-color: var(--accent-gold); }
+        .achieve-card h4 { color: var(--accent-gold); margin-bottom: 0.4rem; font-size: 1.05rem; }
+        .achieve-card p { font-size: 0.85rem; color: var(--text-sub); }
 
         footer {
             text-align: center;
-            padding: 2.5rem;
+            padding: 2.2rem 1rem;
             background: #0d0c0e;
             border-top: 1px solid var(--card-border);
             color: var(--text-sub);
-            font-size: 0.88rem;
+            font-size: 0.85rem;
         }
 
-        @media (max-width: 868px) {
-            .hero h1 { font-size: 2.8rem; }
-            .nav-links { display: none; }
-            .modal-content-wrap { grid-template-columns: 1fr; }
-            .modal-img-container { height: 260px; }
+        /* Strict Mobile View Alignment Fixes (<768px) */
+        @media (max-width: 768px) {
+            nav { padding: 0.9rem 5%; }
+            .brand-logo { font-size: 1.2rem; }
+            .mobile-menu-btn { display: block; }
+            
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(18, 17, 19, 0.98);
+                padding: 1.5rem 8%;
+                border-bottom: 1px solid var(--card-border);
+                gap: 1.2rem;
+            }
+
+            .nav-links.active { display: flex; }
+
+            .hero { padding: 6rem 1rem 3rem 1rem; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1rem; margin-bottom: 1.8rem; }
+            
+            section { padding: 4rem 5%; }
+            .section-title { font-size: 1.8rem; }
+            .section-subtitle { font-size: 0.88rem; margin-bottom: 2rem; }
+
+            .about-grid {
+                display: flex !important;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .art-img-wrap { height: 250px; }
+
+            .modal-content-wrap {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+                max-height: 88vh;
+            }
+
+            .modal-img-container { height: 230px; }
+            .modal-details h3 { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -553,7 +604,6 @@
     <!-- Bright Interactive Gold Dust Particles Canvas -->
     <canvas id="canvas-bg"></canvas>
 
-    <!-- Anti-Theft Protection Shield Script for Context Menu -->
     <script>
         document.addEventListener('contextmenu', event => event.preventDefault());
     </script>
@@ -561,13 +611,14 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="#" onclick="showPage('home')" class="brand-logo">SANA NASEER</a>
-        <ul class="nav-links">
-            <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
-            <li><a href="#" onclick="showPage('gallery')" id="nav-gallery">Gallery</a></li>
-            <li><a href="#about" onclick="showPage('home')">About</a></li>
-            <li><a href="#commission" onclick="showPage('home')">Order</a></li>
-            <li><a href="#achievements" onclick="showPage('home')">Achievements</a></li>
-            <li><a href="#contact" onclick="showPage('home')">Contact</a></li>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" onclick="showPage('home'); closeMobileMenu();" id="nav-home" class="active">Home</a></li>
+            <li><a href="#" onclick="showPage('gallery'); closeMobileMenu();" id="nav-gallery">Gallery</a></li>
+            <li><a href="#about" onclick="showPage('home'); closeMobileMenu();">About</a></li>
+            <li><a href="#commission" onclick="showPage('home'); closeMobileMenu();">Order</a></li>
+            <li><a href="#achievements" onclick="showPage('home'); closeMobileMenu();">Achievements</a></li>
+            <li><a href="#contact" onclick="showPage('home'); closeMobileMenu();">Contact</a></li>
         </ul>
     </nav>
 
@@ -578,8 +629,8 @@
         <header class="hero">
             <h1>SANA NASEER</h1>
             <p>Visual Artist & Contemporary Miniature Specialist</p>
-            <p style="font-size: 1rem; color: #d0c8b0; margin-bottom: 2.2rem;">BFA Fine Arts | Wasli Gouache, Realism, Charcoal Portraits & Wall Murals</p>
-            <div style="display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center;">
+            <p style="font-size: 0.95rem; color: #d0c8b0; margin-bottom: 2rem;">BFA Fine Arts | Wasli Gouache, Realism, Charcoal Portraits & Wall Murals</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                 <a href="#" onclick="showPage('gallery')" class="btn-gold">Explore Gallery</a>
                 <a href="#commission" class="btn-gold" style="border-color: #888; color: #eee;">Order Custom Art</a>
             </div>
@@ -589,17 +640,17 @@
         <section id="about">
             <h2 class="section-title">About the Artist</h2>
             <p class="section-subtitle">Bachelor of Fine Arts — University of Sargodha</p>
-            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: center;">
-                <img src="artist.jpg" alt="Sana Naseer Artist" style="width: 100%; border-radius: 6px; border: 1px solid var(--accent-gold); padding: 6px;" draggable="false" oncontextmenu="return false;">
+            <div class="about-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: center;">
+                <img src="artist" alt="Sana Naseer Artist" style="width: 100%; max-width: 320px; border-radius: 6px; border: 1px solid var(--accent-gold); padding: 6px; margin: 0 auto;" draggable="false" oncontextmenu="return false;">
                 <div>
-                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.5rem;">Artist Statement</h3>
+                    <h3 style="color: var(--accent-gold); margin-bottom: 1rem; font-size: 1.4rem;">Artist Statement</h3>
                     <p style="margin-bottom: 1rem;">I am a visual artist inspired by nature, quiet moments, and deep human emotions. My core practice revolves around <strong>Contemporary Miniature Painting (Gouache on Wasli)</strong>, realistic oil landscapes, charcoal portraiture, calligraphy, and large-scale murals.</p>
                     <p>Through intricate detail and rich symbolism, my work connects historical techniques with modern concepts, inviting viewers to pause and observe quietly.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Highlights (6 Even Cards Grid Fix on Home Page) -->
+        <!-- Featured Highlights (6 Cards Grid) -->
         <section style="background: rgba(22, 21, 25, 0.7);">
             <h2 class="section-title">Featured Artworks</h2>
             <p class="section-subtitle">Curated Highlights from Miniature, Oil & Mural Collections</p>
@@ -608,7 +659,7 @@
                 <!-- Highlight 1: Thesis -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_accepted_decline.jpg" alt="The Accepted Decline" draggable="false">
+                        <img src="thesis_accepted_decline" alt="The Accepted Decline" draggable="false">
                         <span class="badge badge-thesis">Thesis Collection</span>
                     </div>
                     <div class="art-details">
@@ -625,7 +676,7 @@
                 <!-- Highlight 2: Revenge -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="revenge_oil.jpg" alt="Revenge Oil Painting" draggable="false">
+                        <img src="revenge_oil" alt="Revenge Oil Painting" draggable="false">
                         <span class="badge badge-sold">SOLD (Auction)</span>
                     </div>
                     <div class="art-details">
@@ -642,7 +693,7 @@
                 <!-- Highlight 3: Forever in Bloom -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="forever_in_bloom.jpg" alt="Forever in Bloom" draggable="false">
+                        <img src="forever_in_bloom" alt="Forever in Bloom" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -659,7 +710,7 @@
                 <!-- Highlight 4: Sindh Mural -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural" draggable="false">
+                        <img src="sindh_mural" alt="Sindh Cultural Wall Mural" draggable="false">
                         <span class="badge badge-sold">Public Project</span>
                     </div>
                     <div class="art-details">
@@ -676,7 +727,7 @@
                 <!-- Highlight 5: Face of Authority -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_face_of_authority.jpg" alt="The Face of Authority" draggable="false">
+                        <img src="face_of_authority" alt="The Face of Authority" draggable="false">
                         <span class="badge badge-thesis">Thesis Collection</span>
                     </div>
                     <div class="art-details">
@@ -693,7 +744,7 @@
                 <!-- Highlight 6: Calligraphy Prize Winner -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="calligraphy_quran.jpg" alt="Islamic Calligraphy Verse" draggable="false">
+                        <img src="calligraphy_quran" alt="Islamic Calligraphy Verse" draggable="false">
                         <span class="badge badge-sold">SOLD (1st Prize)</span>
                     </div>
                     <div class="art-details">
@@ -772,7 +823,7 @@
 
     <!-- ================= PAGE 2: SEPARATE FULL GALLERY PAGE ================= -->
     <div id="page-gallery" class="page-content">
-        <section style="padding-top: 8rem;">
+        <section style="padding-top: 7rem;">
             <h2 class="section-title">Art Gallery</h2>
             <p class="section-subtitle">Categorized Artworks — All 7 Thesis Miniatures, Paintings, Drawings & Murals</p>
 
@@ -788,14 +839,14 @@
                 <button class="filter-btn" onclick="filterGallery('mural')">Wall Murals</button>
             </div>
 
-            <!-- Complete Artworks Grid -->
+            <!-- Complete Artworks Grid with Exact File Names -->
             <div class="gallery-grid" id="full-gallery-grid">
                 
                 <!-- === ALL 7 THESIS ARTWORKS === -->
                 <!-- 1. Thesis Artwork 1 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_accepted_decline.jpg" alt="The Accepted Decline" draggable="false">
+                        <img src="thesis_accepted_decline" alt="The Accepted Decline" draggable="false">
                         <span class="badge badge-thesis">Thesis 1/7</span>
                     </div>
                     <div class="art-details">
@@ -809,7 +860,7 @@
                 <!-- 2. Thesis Artwork 2 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_resting_on_power.jpg" alt="Resting on Power" draggable="false">
+                        <img src="decline_resting_on_power" alt="Resting on Power" draggable="false">
                         <span class="badge badge-thesis">Thesis 2/7</span>
                     </div>
                     <div class="art-details">
@@ -823,7 +874,7 @@
                 <!-- 3. Thesis Artwork 3 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_strength_under_shadow.jpg" alt="Strength Under Shadow" draggable="false">
+                        <img src="strength_under_shadow" alt="Strength Under Shadow" draggable="false">
                         <span class="badge badge-thesis">Thesis 3/7</span>
                     </div>
                     <div class="art-details">
@@ -837,7 +888,7 @@
                 <!-- 4. Thesis Artwork 4 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_silent_victory.jpg" alt="The Silent Victory" draggable="false">
+                        <img src="silent_victory" alt="The Silent Victory" draggable="false">
                         <span class="badge badge-thesis">Thesis 4/7</span>
                     </div>
                     <div class="art-details">
@@ -851,7 +902,7 @@
                 <!-- 5. Thesis Artwork 5 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_face_of_authority.jpg" alt="The Face of Authority" draggable="false">
+                        <img src="face_of_authority" alt="The Face of Authority" draggable="false">
                         <span class="badge badge-thesis">Thesis 5/7</span>
                     </div>
                     <div class="art-details">
@@ -865,7 +916,7 @@
                 <!-- 6. Thesis Artwork 6 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_comfort_before_collapse.jpg" alt="Comfort Before Collapse" draggable="false">
+                        <img src="comfort_before_collapse" alt="Comfort Before Collapse" draggable="false">
                         <span class="badge badge-thesis">Thesis 6/7</span>
                     </div>
                     <div class="art-details">
@@ -879,7 +930,7 @@
                 <!-- 7. Thesis Artwork 7 -->
                 <div class="art-card filter-item thesis miniature">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="thesis_silent_stain.jpg" alt="The Silent Stain" draggable="false">
+                        <img src="silent_stain" alt="The Silent Stain" draggable="false">
                         <span class="badge badge-thesis">Thesis 7/7</span>
                     </div>
                     <div class="art-details">
@@ -890,37 +941,10 @@
                     </div>
                 </div>
 
-                <!-- === MINIATURE PRACTICE WORKS === -->
-                <div class="art-card filter-item miniature">
-                    <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="miniature_mughal_emperor.jpg" alt="Mughal Courtier Miniature" draggable="false">
-                        <span class="badge badge-avail">AVAILABLE</span>
-                    </div>
-                    <div class="art-details">
-                        <div class="art-title">Mughal Courtier Miniature</div>
-                        <div class="art-meta">Gouache on Wasli | 4" x 6"</div>
-                        <div class="art-desc">Classical Mughal miniature study focusing on traditional garments and sword details.</div>
-                        <div class="art-price-row"><span class="price-tag">PKR 12,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
-                    </div>
-                </div>
-
-                <div class="art-card filter-item miniature">
-                    <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="miniature_border_rendering.jpg" alt="Traditional Floral Border Study" draggable="false">
-                        <span class="badge badge-avail">AVAILABLE</span>
-                    </div>
-                    <div class="art-details">
-                        <div class="art-title">Traditional Floral Border Study</div>
-                        <div class="art-meta">Siyah Qalam & Rendering on Wasli | 4" x 5"</div>
-                        <div class="art-desc">Intricate Islamic flora border rendering using fine brush Siyah Qalam method.</div>
-                        <div class="art-price-row"><span class="price-tag">PKR 8,500</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
-                    </div>
-                </div>
-
                 <!-- === OIL & ACRYLIC PAINTINGS === -->
                 <div class="art-card filter-item painting">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="revenge_oil.jpg" alt="Revenge Oil Painting" draggable="false">
+                        <img src="revenge_oil" alt="Revenge Oil Painting" draggable="false">
                         <span class="badge badge-sold">SOLD (Auction)</span>
                     </div>
                     <div class="art-details">
@@ -933,7 +957,7 @@
 
                 <div class="art-card filter-item painting">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="forever_in_bloom.jpg" alt="Forever in Bloom" draggable="false">
+                        <img src="forever_in_bloom" alt="Forever in Bloom" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -946,7 +970,7 @@
 
                 <div class="art-card filter-item painting">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="ray_of_hope.jpg" alt="Ray of Hope" draggable="false">
+                        <img src="ray_of_hope" alt="Ray of Hope" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -960,7 +984,7 @@
                 <!-- === LANDSCAPES & STILL LIFE === -->
                 <div class="art-card filter-item landscape painting">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="landscape_historical.jpg" alt="Rohtas Fort Landscape" draggable="false">
+                        <img src="landscape_historical" alt="Rohtas Fort Landscape" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -973,7 +997,7 @@
 
                 <div class="art-card filter-item landscape painting">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="still_life_oil.jpg" alt="Classical Still Life" draggable="false">
+                        <img src="still_life_oil" alt="Classical Still Life" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -987,7 +1011,7 @@
                 <!-- === PORTRAITS & SKETCHES === -->
                 <div class="art-card filter-item portrait">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="charcoal_portrait.jpg" alt="Realistic Charcoal Portrait" draggable="false">
+                        <img src="charcoal_portrait" alt="Realistic Charcoal Portrait" draggable="false">
                         <span class="badge badge-sold">COMMISSIONED</span>
                     </div>
                     <div class="art-details">
@@ -1000,7 +1024,7 @@
 
                 <div class="art-card filter-item portrait">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="pastel_old_man.jpg" alt="Cultural Turban Portrait" draggable="false">
+                        <img src="pastel_old_man" alt="Cultural Turban Portrait" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
@@ -1014,7 +1038,7 @@
                 <!-- === CALLIGRAPHY === -->
                 <div class="art-card filter-item calligraphy">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="calligraphy_quran.jpg" alt="Islamic Calligraphy Verse" draggable="false">
+                        <img src="calligraphy_quran" alt="Islamic Calligraphy Verse" draggable="false">
                         <span class="badge badge-sold">SOLD (1st Prize)</span>
                     </div>
                     <div class="art-details">
@@ -1025,23 +1049,10 @@
                     </div>
                 </div>
 
-                <div class="art-card filter-item calligraphy">
-                    <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="calligraphy_gold.jpg" alt="Asma-ul-Husna Gold Canvas" draggable="false">
-                        <span class="badge badge-avail">AVAILABLE</span>
-                    </div>
-                    <div class="art-details">
-                        <div class="art-title">Asma-ul-Husna Gold Canvas</div>
-                        <div class="art-meta">Acrylic & Gold Leaf on Canvas | 12" x 12"</div>
-                        <div class="art-desc">Modern Islamic calligraphy in gold paint on textured dark canvas.</div>
-                        <div class="art-price-row"><span class="price-tag">PKR 7,500</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
-                    </div>
-                </div>
-
                 <!-- === WALL MURALS === -->
                 <div class="art-card filter-item mural">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="sindh_mural.jpg" alt="Sindh Cultural Wall Mural" draggable="false">
+                        <img src="sindh_mural" alt="Sindh Cultural Wall Mural" draggable="false">
                         <span class="badge badge-sold">Public Project</span>
                     </div>
                     <div class="art-details">
@@ -1054,7 +1065,7 @@
 
                 <div class="art-card filter-item mural">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="lion_mural.jpg" alt="Vibrant Lion Pop-Art Mural" draggable="false">
+                        <img src="lion_mural" alt="Vibrant Lion Pop-Art Mural" draggable="false">
                         <span class="badge badge-sold">Large Project</span>
                     </div>
                     <div class="art-details">
@@ -1088,7 +1099,7 @@
         <p>&copy; 2026 Sana Naseer. All Rights Reserved. Contemporary Miniature Specialist & Visual Artist.</p>
     </footer>
 
-    <!-- Lightbox Modal Popup with Proxy Anti-Theft Shield -->
+    <!-- Lightbox Modal Popup -->
     <div id="artModal" class="art-modal" onclick="closeModalOnOutsideClick(event)">
         <div class="modal-content-wrap">
             <span class="modal-close-btn" onclick="closeArtModal()">&times;</span>
@@ -1113,9 +1124,15 @@
         </div>
     </div>
 
-    <!-- Scripts: Navigation, Gallery Filter, WhatsApp Routing, Modal Popup & Bright Particles Animation -->
     <script>
-        // Page Controller
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
         function showPage(pageId) {
             document.querySelectorAll('.page-content').forEach(p => p.classList.remove('active'));
             document.getElementById('page-' + pageId).classList.add('active');
@@ -1127,7 +1144,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Gallery Filter Controller
         function filterGallery(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
@@ -1142,10 +1158,11 @@
             });
         }
 
-        // Modal Popup Handler with Bullet Points
+        // Auto Image Fallback Loader for exact file extensions
         function openArtModal(element) {
             const card = element.closest('.art-card');
-            const imgSrc = card.querySelector('.art-img-wrap img').src;
+            const imgEl = card.querySelector('.art-img-wrap img');
+            const imgSrc = imgEl.src;
             const title = card.querySelector('.art-title').innerText;
             const meta = card.querySelector('.art-meta').innerText;
             const desc = card.querySelector('.art-desc').innerText;
@@ -1184,7 +1201,23 @@
             }
         }
 
-        // WhatsApp Custom Order Routing
+        // Automatic image extension handler (tries without extension, .jpg, .png, .jpeg)
+        document.querySelectorAll('.art-img-wrap img, .about-grid img').forEach(img => {
+            let baseName = img.getAttribute('src');
+            if(!baseName.includes('.')) {
+                img.src = baseName + '.jpg';
+                img.onerror = function() {
+                    this.onerror = function() {
+                        this.onerror = function() {
+                            this.src = baseName;
+                        };
+                        this.src = baseName + '.png';
+                    };
+                    this.src = baseName + '.jpeg';
+                };
+            }
+        });
+
         function sendWhatsAppOrder(event) {
             event.preventDefault();
             const name = document.getElementById('clientName').value;
@@ -1207,7 +1240,7 @@
             window.open(`https://wa.me/923186709009?text=${message}`, '_blank');
         }
 
-        // Bright Interactive Gold Dust Particles Canvas
+        // Bright Canvas Animation
         const canvas = document.getElementById('canvas-bg');
         const ctx = canvas.getContext('2d');
         let width, height, particles;
