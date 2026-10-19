@@ -280,21 +280,7 @@
             z-index: 4;
         }
 
-        .modal-img-container::after {
-            content: "@artistsananaseer";
-            position: absolute;
-            bottom: 12px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.55);
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
-            pointer-events: none;
-            z-index: 4;
-        }
+        /* (modal keeps its own .watermark-overlay "Sana Naseer"; no second mark here) */
 
             max-height: 100%;
             object-fit: contain;
@@ -1685,7 +1671,7 @@
             <div class="modal-img-container" oncontextmenu="return false;">
                 <div class="anti-theft-shield" oncontextmenu="return false;"></div>
                 <img id="modalImg" src="" alt="Artwork Preview" draggable="false" oncontextmenu="return false;">
-                <div class="watermark-overlay">Â© Sana Naseer Fine Art</div>
+                <div class="watermark-overlay">Sana Naseer</div>
             </div>
             <div class="modal-details">
                 <div>
