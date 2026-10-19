@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{document.documentElement.setAttribute('data-theme', 'sn-theme'||'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}</script>
     <title>Sana Naseer | Visual Artist & Miniature Specialist</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -17,6 +18,98 @@
             --sold-color: #ef4444;
             --avail-color: #10b981;
         }
+        /* ===== Theme toggle button ===== */
+        #theme-toggle {
+            background: transparent;
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.45rem 0.95rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        #theme-toggle:hover { border-color: var(--accent-gold); color: var(--accent-gold); }
+        [data-theme="light"] .hero { position: relative; overflow: hidden; background: #ffffff; }
+        [data-theme="light"] .hero-strokes { display: none; }
+        [data-theme="light"] .hero-bubbles { display: block; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        [data-theme="light"] .hero > *:not(.hero-bubbles):not(.hero-strokes) { position: relative; z-index: 1; }
+        .hero-strokes, .hero-bubbles { display: none; }
+        /* ===== Light theme v8: static pop-art halftone, white cards on dark sections ===== */
+        [data-theme="light"] {
+            --bg-color: #ffffff;
+            --card-bg: #ffffff;
+            --card-border: #e3e3e3;
+            --accent-gold: #1d7a4f;
+            --accent-glow: rgba(0,0,0,0);
+            --text-main: #161616;
+            --text-sub: #555555;
+        }
+        [data-theme="light"] body { background: #ffffff; }
+        [data-theme="light"] #canvas-bg { display: none; }
+        [data-theme="light"] nav { background: rgba(255,255,255,0.96); }
+        [data-theme="light"] .brand-logo { color: #161616; text-shadow: none; }
+        [data-theme="light"] .nav-links a { color: #161616; }
+        [data-theme="light"] .nav-links a:hover { color: #1d7a4f; text-shadow: none; }
+        [data-theme="light"] .mobile-menu-btn { color: #161616; }
+        [data-theme="light"] .hero h1 { color: #161616; text-shadow: none; }
+        [data-theme="light"] .hero p { color: #555555; }
+        [data-theme="light"] .section-title { color: #161616; text-shadow: none; }
+        [data-theme="light"] .section-subtitle { color: #555555; }
+        [data-theme="light"] .dark-zone {
+            background-color: #1e2a44 !important;
+            background-image: radial-gradient(rgba(255,255,255,0.09) 1.2px, transparent 1.3px) !important;
+            background-size: 24px 24px !important;
+        }
+        [data-theme="light"] .dark-zone .section-title { color: #ffffff; }
+        [data-theme="light"] .dark-zone .section-subtitle { color: #c8ccd8; }
+        [data-theme="light"] .art-card { background: #ffffff; border: 1px solid #e3e3e3; box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
+        [data-theme="light"] .art-card:hover { border-color: #1d7a4f; box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        [data-theme="light"] .art-img-wrap { background-color: #f0f0f0; }
+        [data-theme="light"] .art-title { color: #161616; }
+        [data-theme="light"] .art-meta { color: #1d7a4f; }
+        [data-theme="light"] .art-desc { color: #555555; }
+        [data-theme="light"] .price-tag { color: #161616; }
+        [data-theme="light"] .btn-sm { border-color: #1d7a4f; color: #1d7a4f; }
+        [data-theme="light"] .btn-sm:hover { background-color: #d6336c !important; border-color: #d6336c !important; color: #ffffff !important; }
+        [data-theme="light"] .badge-thesis { background: #1d7a4f; color: #ffffff; }
+        [data-theme="light"] .achieve-card { background: #ffffff; border-color: #e3e3e3; }
+        [data-theme="light"] .achieve-card h4 { color: #1d7a4f; }
+        [data-theme="light"] .achieve-card p { color: #555555; }
+        [data-theme="light"] #commission form { background: #ffffff; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+        [data-theme="light"] #commission form label { color: #161616 !important; }
+        [data-theme="light"] #commission .category-item { background: #ffffff; border: 1px solid #161616; }
+        [data-theme="light"] #commission .category-item label { color: #161616 !important; }
+        [data-theme="light"] #commission .category-item:has(input:checked) { background: #161616; border-color: #161616; }
+        [data-theme="light"] #commission .category-item:has(input:checked) label { color: #ffffff !important; }
+        [data-theme="light"] .form-control { background: #ffffff; color: #161616; border-color: #c9c9c9; }
+        [data-theme="light"] .form-control:focus { border-color: #1d7a4f; }
+        [data-theme="light"] .modal-content-wrap { background: #ffffff; border-color: #e3e3e3; box-shadow: 0 12px 44px rgba(0,0,0,0.25); }
+        [data-theme="light"] .modal-details h3 { color: #161616; }
+        [data-theme="light"] .modal-details-list li { color: #555555; }
+        [data-theme="light"] .modal-details-list li strong { color: #1d7a4f; }
+        [data-theme="light"] .modal-close-btn { color: #161616; }
+        [data-theme="light"] #modalOrderBtn { color: #1d7a4f; border-color: #1d7a4f; }
+        [data-theme="light"] .btn-gold { color: #333333; border-color: #999999; background-color: transparent; box-shadow: none; }
+        [data-theme="light"] .btn-gold:hover { background-color: #d6336c !important; border-color: #d6336c !important; color: #ffffff !important; box-shadow: none; transform: translateY(-2px); }
+        [data-theme="light"] .dark-zone .btn-gold { color: #f0f0f0; border-color: #b9b9c2; }
+        [data-theme="light"] .filter-btn { background: #ffffff; color: #333333; border-color: #d5d5d5; }
+        [data-theme="light"] .filter-btn.active, [data-theme="light"] .filter-btn:hover { background: #d6336c; border-color: #d6336c; color: #ffffff; }
+        [data-theme="light"] #contact { background: #ffffff !important; }
+        [data-theme="light"] footer { background: #f4f4f4; color: #555555; }
+        [data-theme="light"] a.btn-gold[href="#commission"] { color: #333333 !important; border-color: #999999 !important; }
+        [data-theme="light"] a.btn-gold[href="#commission"]:hover { color: #ffffff !important; background-color: #d6336c !important; border-color: #d6336c !important; box-shadow: none; }
+        /* color-theory contrast pass: every hover keeps readable text */
+        [data-theme="light"] .nav-links a:hover { color: #d6336c; }
+        [data-theme="light"] #theme-toggle:hover { color: #d6336c; border-color: #d6336c; }
+        [data-theme="light"] .achieve-card:hover { border-color: #d6336c; }
+        [data-theme="light"] .art-card:hover { border-color: #d6336c; }
+
 
         * {
             margin: 0;
@@ -642,6 +735,7 @@
             <li><a href="#achievements" onclick="showPage('home'); closeMobileMenu();">Achievements</a></li>
             <li><a href="#contact" onclick="showPage('home'); closeMobileMenu();">Contact</a></li>
         </ul>
+        <button id="theme-toggle" onclick="toggleTheme()" aria-label="Switch theme">Light</button>
     </nav>
 
     <!-- ================= PAGE 1: HOME PAGE ================= -->
@@ -649,6 +743,7 @@
         
         <!-- Hero Section -->
         <header class="hero">
+            <svg class="hero-bubbles" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="790" cy="10" r="48" fill="#ff6b6b" opacity="0.75"/><circle cx="705" cy="55" r="30" fill="none" stroke="#4ecdc4" stroke-width="5" opacity="0.8"/><circle cx="745" cy="115" r="20" fill="#ffd93d" opacity="0.7"/><circle cx="640" cy="25" r="22" fill="#6bcbff" opacity="0.7"/><circle cx="672" cy="132" r="14" fill="#b983ff" opacity="0.65"/><circle cx="588" cy="88" r="16" fill="none" stroke="#ffa94d" stroke-width="4" opacity="0.75"/><circle cx="762" cy="182" r="12" fill="#ff8fab" opacity="0.65"/><circle cx="540" cy="150" r="10" fill="#4ecdc4" opacity="0.6"/><circle cx="612" cy="202" r="9" fill="none" stroke="#ffd93d" stroke-width="3" opacity="0.7"/><circle cx="480" cy="200" r="7" fill="#6bcbff" opacity="0.55"/><circle cx="700" cy="245" r="8" fill="#ffa94d" opacity="0.55"/><circle cx="420" cy="262" r="6" fill="#b983ff" opacity="0.5"/><circle cx="180" cy="425" r="10" fill="#ff6b6b" opacity="0.5"/><circle cx="118" cy="382" r="7" fill="none" stroke="#4ecdc4" stroke-width="3" opacity="0.6"/><circle cx="242" cy="452" r="6" fill="#ffd93d" opacity="0.5"/></svg>
             <h1>SANA NASEER</h1>
             <p>Visual Artist</p>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
@@ -672,7 +767,7 @@
         </section>
 
         <!-- Featured Highlights (6 Cards Grid) -->
-        <section style="background: rgba(22, 21, 25, 0.7);">
+        <section class="dark-zone" style="background: rgba(22, 21, 25, 0.7);">
             <h2 class="section-title">Featured Artworks</h2>
             <p class="section-subtitle">Curated Highlights from Thesis, Miniature & Oil Collections</p>
 
@@ -769,7 +864,7 @@
         </section>
 
         <!-- Custom Order Section -->
-        <section id="commission">
+        <section id="commission" class="dark-zone">
             <h2 class="section-title">Custom Order / Commission</h2>
             <p class="section-subtitle">Select your preferred art category and message directly on WhatsApp</p>
 
@@ -810,7 +905,7 @@
         </section>
 
         <!-- Achievements Section -->
-        <section id="achievements" style="background: rgba(22, 21, 25, 0.7);">
+        <section id="achievements" class="dark-zone" style="background: rgba(22, 21, 25, 0.7);">
             <h2 class="section-title">Achievements</h2>
             <p class="section-subtitle">Competitions, Auctions & Professional Milestones</p>
             <div class="achieve-grid">
@@ -828,7 +923,7 @@
 
     <!-- ================= PAGE 2: SEPARATE FULL GALLERY PAGE ================= -->
     <div id="page-gallery" class="page-content">
-        <section style="padding-top: 7rem;">
+        <section class="dark-zone" style="padding-top: 7rem;">
             <h2 class="section-title">Art Gallery</h2>
             <p class="section-subtitle">Categorized Artworks - Thesis, Miniatures, Paintings, Landscapes, Still Life, Sketches, Calligraphy & Murals</p>
 
@@ -1766,6 +1861,19 @@
             }
         }
 
+        // Theme toggle with saved preference
+        function refreshThemeBtn() {
+            var b = document.getElementById('theme-toggle');
+            if (b) b.textContent = (document.documentElement.getAttribute('data-theme') === 'light') ? 'Dark' : 'Light';
+        }
+        function toggleTheme() {
+            var next = (document.documentElement.getAttribute('data-theme') === 'light') ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', next);
+            try { localStorage.setItem('" + _THEME_KEY + "', next); } catch (e) {}
+            refreshThemeBtn();
+        }
+        refreshThemeBtn();
+
         // Automatic image extension handler (tries without extension, .jpg, .png, .jpeg)
         document.querySelectorAll('.art-img-wrap img, .about-grid img').forEach(img => {
             let baseName = img.getAttribute('src');
@@ -1850,9 +1958,11 @@
 
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(229, 193, 88, ${p.alpha})`;
+                var _isLight = document.documentElement.getAttribute('data-theme') === 'light';
+                if (_isLight && !p.tint) { var _r = Math.random(); p.tint = _r < 0.5 ? '30,42,68' : (_r < 0.8 ? '45,45,45' : '22,32,54'); }
+                ctx.fillStyle = _isLight ? `rgba(${p.tint}, ${p.alpha})` : `rgba(229, 193, 88, ${p.alpha})`;
                 ctx.shadowBlur = 14;
-                ctx.shadowColor = '#e5c158';
+                ctx.shadowBlur = _isLight ? 0 : 14;\n                ctx.shadowColor = _isLight ? 'rgba(0,0,0,0)' : '#e5c158';
                 ctx.fill();
             });
             requestAnimationFrame(animateCanvas);
