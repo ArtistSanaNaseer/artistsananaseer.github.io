@@ -713,6 +713,38 @@
             .modal-details h3 { font-size: 1.3rem; }
         }
     </style>
+
+<style>
+#chat-fab{position:fixed;right:1.2rem;bottom:1.2rem;width:56px;height:56px;border-radius:50%;background:#e5c158;border:none;cursor:pointer;z-index:9990;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.35)}
+#chat-fab svg{width:26px;height:26px;fill:#0b0a0c}
+#chat-panel{position:fixed;right:1.2rem;bottom:5.4rem;width:330px;max-width:calc(100vw - 2.4rem);height:440px;max-height:72vh;background:#151419;border:1px solid #2c2a33;border-radius:14px;z-index:9991;display:none;flex-direction:column;overflow:hidden;box-shadow:0 10px 34px rgba(0,0,0,.55)}
+#chat-panel.open{display:flex}
+#chat-head{background:#e5c158;color:#0b0a0c;padding:.65rem 1rem;font-weight:700;display:flex;justify-content:space-between;align-items:center;font-size:.95rem}
+#chat-close{background:none;border:none;font-size:1.1rem;cursor:pointer;color:#0b0a0c;font-weight:700}
+#chat-msgs{flex:1;overflow-y:auto;padding:.8rem;display:flex;flex-direction:column;gap:.5rem}
+.msg{max-width:86%;padding:.55rem .8rem;border-radius:12px;font-size:.88rem;line-height:1.45;word-wrap:break-word}
+.msg.bot{background:#24232b;color:#f0f0f0;align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:#e5c158;color:#0b0a0c;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.bot a{color:#4ade80}
+#chat-quick{display:flex;flex-wrap:wrap;gap:.4rem;padding:.4rem .8rem}
+.qchip{background:transparent;border:1px solid #e5c158;color:#e5c158;border-radius:20px;padding:.28rem .7rem;font-size:.78rem;cursor:pointer}
+.qchip:hover{background:#e5c158;color:#0b0a0c}
+#chat-form{display:flex;border-top:1px solid #2c2a33}
+#chat-input{flex:1;background:#0e0d11;border:none;color:#f0f0f0;padding:.7rem .9rem;font-size:.88rem;outline:none;min-width:0}
+#chat-send{background:#e5c158;border:none;color:#0b0a0c;padding:0 1.1rem;cursor:pointer;font-weight:700;font-size:.88rem}
+[data-theme="light"] #chat-panel{background:#fff;border-color:#ddd}
+[data-theme="light"] .msg.bot{background:#f1f1f4;color:#161616}
+[data-theme="light"] #chat-input{background:#f6f6f8;color:#161616}
+[data-theme="light"] .qchip{border-color:#1d7a4f;color:#1d7a4f}
+[data-theme="light"] .qchip:hover{background:#1d7a4f;color:#fff}
+[data-theme="light"] #chat-head{background:#1d7a4f;color:#fff}
+[data-theme="light"] #chat-close{color:#fff}
+[data-theme="light"] #chat-fab{background:#1d7a4f}
+[data-theme="light"] #chat-fab svg{fill:#fff}
+[data-theme="light"] #chat-send{background:#1d7a4f;color:#fff}
+[data-theme="light"] .msg.user{background:#1d7a4f;color:#fff}
+[data-theme="light"] .msg.bot a{color:#1d7a4f}
+</style>
 </head>
 <body>
 
@@ -1974,5 +2006,59 @@
         initCanvas();
         animateCanvas();
     </script>
+
+<button id="chat-fab" aria-label="Chat with art assistant"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4V5a2 2 0 0 1 2-2z"/></svg></button>
+<div id="chat-panel" role="dialog" aria-label="Art assistant chat">
+<div id="chat-head"><span>Art Assistant</span><button id="chat-close" aria-label="Close chat">X</button></div>
+<div id="chat-msgs"></div>
+<div id="chat-quick"></div>
+<form id="chat-form"><input id="chat-input" type="text" placeholder="Ask about prices, orders..." autocomplete="off" aria-label="Type your message"><button id="chat-send" type="submit">Send</button></form>
+</div>
+
+<script>
+(function(){
+var WA='https://wa.me/923186709009';
+var WAL='<a href="'+WA+'" target="_blank" rel="noopener">WhatsApp</a>';
+var RULES=[
+{k:['price','rate','cost','qeemat','keemat','kimat','kitne ka','paisa','charges'],a:'Every artwork card shows its price. Custom pieces depend on size and medium - message on '+WAL+' for a quick quote.'},
+{k:['order','buy','purchase','khareed','kharid','book'],a:'Easy! Tap "Place Order" on any artwork card, or fill the Custom Order form below - it opens WhatsApp with your message ready to send.'},
+{k:['commission','custom','portrait','banwana','tasveer'],a:'Yes! Sana takes commissions - portraits, calligraphy, paintings and murals. Fill the Custom Order form and mention the size and details.'},
+{k:['time','long','duration','kitna time','kab tak','days','week'],a:'Most pieces take 1 to 3 weeks depending on size and detail. Exact timing is confirmed on '+WAL+'.'},
+{k:['deliver','ship','bhejna','bhijwana','parcel','tcs','courier'],a:'Delivery is available across Pakistan. Packing and delivery details are confirmed on '+WAL+'.'},
+{k:['medium','material','technique','oil','miniature','wasli'],a:'Sana works in oil painting, miniature painting, sketching, calligraphy, murals and photography.'},
+{k:['location','kahan','city','sargodha','address','rehti'],a:'Sana is based in Sargodha, Punjab, Pakistan and delivers nationwide.'},
+{k:['contact','whatsapp','number','rabta','phone','call'],a:'You can reach Sana directly on '+WAL+'.'},
+{k:['thesis'],a:"Sana's thesis 'Decline Beneath the Surface' is a miniature series about the Mughal Empire's decline, using the crow as a symbol. See the Thesis tab in the gallery."},
+{k:['thank','shukriya','meherbani'],a:'You are most welcome!'},
+{k:['bye','allah hafiz','khuda hafiz'],a:'Goodbye! Come back anytime.'},
+{k:['salam','aoa','hello','hey','adab','assalam'],a:"Hello! I am Sana's art assistant. Ask me about prices, ordering, or custom work."}
+];
+var QUICK=['Artwork prices?','How do I order?','Custom portrait','WhatsApp'];
+var fab,panel,msgs,quick,form,input,opened=false;
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e;}
+function addMsg(text,who){msgs.appendChild(el('div','msg '+who,text));msgs.scrollTop=msgs.scrollHeight;}
+function answer(q){
+var t=' '+q.toLowerCase()+' ';
+for(var i=0;i<RULES.length;i++){var r=RULES[i];
+for(var j=0;j<r.k.length;j++){if(t.indexOf(r.k[j])>-1)return r.a;}}
+return 'Hmm, I am not sure about that. Ask Sana directly on '+WAL+' - she replies fast.';
+}
+function send(text){
+text=(text||'').trim();if(!text)return;
+addMsg(text.replace(/</g,'&lt;'),'user');
+setTimeout(function(){addMsg(answer(text),'bot');},350);
+}
+function init(){
+fab=document.getElementById('chat-fab');panel=document.getElementById('chat-panel');
+msgs=document.getElementById('chat-msgs');quick=document.getElementById('chat-quick');
+form=document.getElementById('chat-form');input=document.getElementById('chat-input');
+fab.onclick=function(){panel.classList.toggle('open');if(panel.classList.contains('open')&&!opened){opened=true;addMsg("Hi! Ask me about Sana's artworks, prices or orders.",'bot');};};
+document.getElementById('chat-close').onclick=function(){panel.classList.remove('open');};
+QUICK.forEach(function(q){var b=el('button','qchip',q);b.type='button';b.onclick=function(){send(q);};quick.appendChild(b);});
+form.onsubmit=function(e){e.preventDefault();send(input.value);input.value='';};
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+</script>
 </body>
 </html>
