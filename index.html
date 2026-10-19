@@ -251,6 +251,8 @@
             overflow: hidden;
             cursor: pointer;
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
             -webkit-user-drag: none;
             display: flex;
             align-items: center;
@@ -260,6 +262,40 @@
 
         .art-img-wrap img {
             max-width: 100%;
+
+        /* Copyright watermark on every artwork photo */
+        .art-img-wrap::after {
+            content: "@artistsananaseer";
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+            z-index: 4;
+        }
+
+        .modal-img-container::after {
+            content: "@artistsananaseer";
+            position: absolute;
+            bottom: 12px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.55);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+            z-index: 4;
+        }
+
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.5s ease;
@@ -611,7 +647,7 @@
     <!-- Navigation Bar -->
     <nav>
         <a href="#" onclick="showPage('home')" class="brand-logo">SANA NASEER</a>
-        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">â°</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#" onclick="showPage('home'); closeMobileMenu();" id="nav-home" class="active">Home</a></li>
             <li><a href="#" onclick="showPage('gallery'); closeMobileMenu();" id="nav-gallery">Gallery</a></li>
@@ -628,8 +664,8 @@
         <!-- Hero Section -->
         <header class="hero">
             <h1>SANA NASEER</h1>
-            <p>Visual Artist & Contemporary Miniature Specialist</p>
-            <p style="font-size: 0.95rem; color: #d0c8b0; margin-bottom: 2rem;">BFA Fine Arts | Wasli Gouache, Realism, Charcoal Portraits & Wall Murals</p>
+            <p>Visual Artist</p>
+            <p style="font-size: 0.95rem; color: #d0c8b0; margin-bottom: 2rem;">Traditional + Contemporary</p>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
                 <a href="#" onclick="showPage('gallery')" class="btn-gold">Explore Gallery</a>
                 <a href="#commission" class="btn-gold" style="border-color: #888; color: #eee;">Order Custom Art</a>
@@ -639,7 +675,7 @@
         <!-- About Section -->
         <section id="about">
             <h2 class="section-title">About the Artist</h2>
-            <p class="section-subtitle">Bachelor of Fine Arts — University of Sargodha</p>
+            <p class="section-subtitle">Bachelor of Fine Arts â University of Sargodha</p>
             <div class="about-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 3.5rem; align-items: center;">
                 <img src="artist" alt="Sana Naseer Artist" style="width: 100%; max-width: 320px; border-radius: 6px; border: 1px solid var(--accent-gold); padding: 6px; margin: 0 auto;" draggable="false" oncontextmenu="return false;">
                 <div>
@@ -653,14 +689,14 @@
         <!-- Featured Highlights (6 Cards Grid) -->
         <section style="background: rgba(22, 21, 25, 0.7);">
             <h2 class="section-title">Featured Artworks</h2>
-            <p class="section-subtitle">Curated Highlights from Miniature, Oil & Mural Collections</p>
+            <p class="section-subtitle">Curated Highlights from Thesis, Miniature & Oil Collections</p>
 
             <div class="gallery-grid">
                 <!-- Highlight 1: Thesis -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="thesis_accepted_decline" alt="The Accepted Decline" draggable="false">
-                        <span class="badge badge-thesis">Thesis Collection</span>
+                        <span class="badge badge-thesis">Thesis</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">The Accepted Decline</div>
@@ -677,7 +713,7 @@
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="revenge_oil" alt="Revenge Oil Painting" draggable="false">
-                        <span class="badge badge-sold">SOLD (Auction)</span>
+                        <span class="badge badge-sold">SOLD</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">Revenge</div>
@@ -707,28 +743,11 @@
                     </div>
                 </div>
 
-                <!-- Highlight 4: Sindh Mural -->
-                <div class="art-card">
-                    <div class="art-img-wrap" onclick="openArtModal(this)">
-                        <img src="sindh_mural" alt="Sindh Cultural Wall Mural" draggable="false">
-                        <span class="badge badge-sold">Public Project</span>
-                    </div>
-                    <div class="art-details">
-                        <div class="art-title">Sindh Cultural Wall Mural</div>
-                        <div class="art-meta">Enamel on Wall | 108" x 130"</div>
-                        <div class="art-desc">Large scale public outdoor wall mural representing provincial heritage and landmarks.</div>
-                        <div class="art-price-row">
-                            <span class="price-tag">Commission</span>
-                            <a href="#commission" class="btn-sm">Inquire Mural</a>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Highlight 5: Face of Authority -->
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="face_of_authority" alt="The Face of Authority" draggable="false">
-                        <span class="badge badge-thesis">Thesis Collection</span>
+                        <span class="badge badge-thesis">Thesis</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">The Face of Authority</div>
@@ -745,22 +764,22 @@
                 <div class="art-card">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="calligraphy_quran" alt="Islamic Calligraphy Verse" draggable="false">
-                        <span class="badge badge-sold">SOLD (1st Prize)</span>
+                        <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">Islamic Calligraphy Verse</div>
                         <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
                         <div class="art-desc">1st Position Winner at Horizon Calligraphy Competition 2024.</div>
                         <div class="art-price-row">
-                            <span class="price-tag" style="color:var(--sold-color)">SOLD</span>
-                            <a href="#commission" class="btn-sm">Commission</a>
+                            <span class="price-tag">PKR 18,000</span>
+                            <a href="https://wa.me/923186709009?text=Hi%20Sana,%20I%20want%20to%20buy%20Islamic%20Calligraphy%20Verse" class="btn-sm" target="_blank">Buy Now</a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 3.5rem;">
-                <a href="#" onclick="showPage('gallery')" class="btn-gold">Go To Full Gallery Page (All Categories) ➔</a>
+                <a href="#" onclick="showPage('gallery')" class="btn-gold">Go To Full Gallery Page (All Categories) â</a>
             </div>
         </section>
 
@@ -774,13 +793,13 @@
                     <div style="margin-bottom: 1.5rem;">
                         <label style="color: var(--accent-gold); font-size: 0.95rem;">1. Select Art Category (Requirement):</label>
                         <div class="category-options">
-                            <div class="category-item"><input type="checkbox" id="cat1" value="Sketching / Charcoal"><label for="cat1">✏️ Sketching / Charcoal</label></div>
-                            <div class="category-item"><input type="checkbox" id="cat2" value="Calligraphy"><label for="cat2">✒️ Calligraphy</label></div>
-                            <div class="category-item"><input type="checkbox" id="cat3" value="Oil / Acrylic Painting"><label for="cat3">🎨 Oil / Acrylic Painting</label></div>
-                            <div class="category-item"><input type="checkbox" id="cat4" value="Miniature Art (Wasli)"><label for="cat4">🖼️ Miniature Art (Wasli)</label></div>
-                            <div class="category-item"><input type="checkbox" id="cat5" value="Wall Mural Project"><label for="cat5">🏛️ Wall Mural Project</label></div>
-                            <div class="category-item"><input type="checkbox" id="cat6" value="Abstract Art"><label for="cat6">🌀 Abstract Art</label></div>
-                            <div class="category-item"><input type="checkbox" id="cat7" value="Texture Art"><label for="cat7">✨ Texture Art</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat1" value="Sketching / Charcoal"><label for="cat1">âï¸ Sketching / Charcoal</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat2" value="Calligraphy"><label for="cat2">âï¸ Calligraphy</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat3" value="Oil / Acrylic Painting"><label for="cat3">ð¨ Oil / Acrylic Painting</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat4" value="Miniature Art (Wasli)"><label for="cat4">ð¼ï¸ Miniature Art (Wasli)</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat5" value="Wall Mural Project"><label for="cat5">ðï¸ Wall Mural Project</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat6" value="Abstract Art"><label for="cat6">ð Abstract Art</label></div>
+                            <div class="category-item"><input type="checkbox" id="cat7" value="Texture Art"><label for="cat7">â¨ Texture Art</label></div>
                         </div>
                     </div>
 
@@ -799,7 +818,7 @@
                         <textarea id="artDetails" class="form-control" rows="4" placeholder="Describe reference ideas, details, colors..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-gold" style="width: 100%; font-weight: 600;">Send Order Request to WhatsApp ➔</button>
+                    <button type="submit" class="btn-gold" style="width: 100%; font-weight: 600;">Send Order Request to WhatsApp â</button>
                 </form>
             </div>
         </section>
@@ -809,12 +828,12 @@
             <h2 class="section-title">Achievements</h2>
             <p class="section-subtitle">Competitions, Auctions & Professional Milestones</p>
             <div class="achieve-grid">
-                <div class="achieve-card"><h4>🏆 Winner — Horizon Calligraphy (2024)</h4><p>1st Position in Calligraphy Competition showcasing classical script execution.</p></div>
-                <div class="achieve-card"><h4>🏛️ Table Talk Islamabad Auction</h4><p>Auctioned original fine art paintings at Table Talk gallery event, Islamabad.</p></div>
-                <div class="achieve-card"><h4>💡 UOS Incubation Center Startup</h4><p>Selected artist startup at University of Sargodha Incubation Center (2024–2025).</p></div>
-                <div class="achieve-card"><h4>🎨 Pakistan Longest Art Marathon</h4><p>Completed large canvas art in Pakistan's Longest Art Marathon (2024–2025).</p></div>
-                <div class="achieve-card"><h4>🎖️ Azadi Brigade Commission</h4><p>Executed official large scale commissioned wall art projects (2025).</p></div>
-                <div class="achieve-card"><h4>🖌️ Brighto Paints Collaboration</h4><p>Worked on professional mural projects in collaboration with Brighto Paints (2025).</p></div>
+                <div class="achieve-card"><h4>ð Winner â Horizon Calligraphy (2024)</h4><p>1st Position in Calligraphy Competition showcasing classical script execution.</p></div>
+                <div class="achieve-card"><h4>ðï¸ Table Talk Islamabad Auction</h4><p>Auctioned original fine art paintings at Table Talk gallery event, Islamabad.</p></div>
+                <div class="achieve-card"><h4>ð¡ UOS Incubation Center Startup</h4><p>Selected artist startup at University of Sargodha Incubation Center (2024â2025).</p></div>
+                <div class="achieve-card"><h4>ð¨ Pakistan Longest Art Marathon</h4><p>Completed large canvas art in Pakistan's Longest Art Marathon (2024â2025).</p></div>
+                <div class="achieve-card"><h4>ðï¸ Azadi Brigade Commission</h4><p>Executed official large scale commissioned wall art projects (2025).</p></div>
+                <div class="achieve-card"><h4>ðï¸ Brighto Paints Collaboration</h4><p>Worked on professional mural projects in collaboration with Brighto Paints (2025).</p></div>
             </div>
         </section>
 
@@ -825,15 +844,16 @@
     <div id="page-gallery" class="page-content">
         <section style="padding-top: 7rem;">
             <h2 class="section-title">Art Gallery</h2>
-            <p class="section-subtitle">Categorized Artworks — All 7 Thesis Miniatures, Paintings, Drawings & Murals</p>
+            <p class="section-subtitle">Categorized Artworks â All 7 Thesis Miniatures, Paintings, Drawings & Murals</p>
 
             <!-- Category Filter Tabs -->
             <div class="filter-container">
                 <button class="filter-btn active" onclick="filterGallery('all')">All Works</button>
-                <button class="filter-btn" onclick="filterGallery('thesis')">Thesis Series (7 Artworks)</button>
-                <button class="filter-btn" onclick="filterGallery('miniature')">Miniature Art</button>
+                <button class="filter-btn" onclick="filterGallery('thesis')">Thesis</button>
+                <button class="filter-btn" onclick="filterGallery('miniature')">Miniature</button>
                 <button class="filter-btn" onclick="filterGallery('painting')">Oil & Acrylic Paintings</button>
-                <button class="filter-btn" onclick="filterGallery('landscape')">Landscapes & Still Life</button>
+                <button class="filter-btn" onclick="filterGallery('landscape')">Landscape</button>
+                <button class="filter-btn" onclick="filterGallery('stilllife')">Still Life</button>
                 <button class="filter-btn" onclick="filterGallery('portrait')">Portraits & Sketches</button>
                 <button class="filter-btn" onclick="filterGallery('calligraphy')">Calligraphy</button>
                 <button class="filter-btn" onclick="filterGallery('mural')">Wall Murals</button>
@@ -945,13 +965,13 @@
                 <div class="art-card filter-item painting">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="revenge_oil" alt="Revenge Oil Painting" draggable="false">
-                        <span class="badge badge-sold">SOLD (Auction)</span>
+                        <span class="badge badge-sold">SOLD</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">Revenge</div>
                         <div class="art-meta">Oil on Canvas | 24" x 24"</div>
                         <div class="art-desc">Portrayal of inner strength against societal pressure. Sold at Table Talk Auction.</div>
-                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Commission</a></div>
+                        <div class="art-price-row"><span class="price-tag">PKR 18,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
                     </div>
                 </div>
 
@@ -981,8 +1001,177 @@
                     </div>
                 </div>
 
-                <!-- === LANDSCAPES & STILL LIFE === -->
-                <div class="art-card filter-item landscape painting">
+                                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="eye_study" alt="Eye Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Eye Study</div>
+                        <div class="art-meta">Oil on Canvas | 8" x 8"</div>
+                        <div class="art-desc">Hyper-realistic close-up study of a human eye in oil.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 8,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Eye%20Study" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="traditional_grace" alt="Traditional Grace" draggable="false">
+                        <span class="badge badge-sold">SOLD</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Traditional Grace</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Portrait of a gentleman in traditional attire against a vibrant doorway.</div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Similar</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="lady_in_hat" alt="Lady in the Hat" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Lady in the Hat</div>
+                        <div class="art-meta">Oil on Canvas | 12" x 18"</div>
+                        <div class="art-desc">Elegant portrait of a woman in a straw hat adorned with flowers.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 12,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Lady%20in%20the%20Hat" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="cosmic_circles" alt="Cosmic Circles" draggable="false">
+                        <span class="badge badge-sold">SOLD</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Cosmic Circles</div>
+                        <div class="art-meta">Oil on Canvas | 24" x 24"</div>
+                        <div class="art-desc">Abstract composition of glowing orbs in deep cosmic tones.</div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Similar</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="geometric_harmony" alt="Geometric Harmony" draggable="false">
+                        <span class="badge badge-sold">SOLD</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Geometric Harmony</div>
+                        <div class="art-meta">Oil on Canvas | 24" x 24"</div>
+                        <div class="art-desc">Bold geometric abstract in earthy metallic tones.</div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Similar</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="sparrow_baby" alt="Sparrow Feeding Her Baby" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Sparrow Feeding Her Baby</div>
+                        <div class="art-meta">Poster Paint on Paper | 11" x 16"</div>
+                        <div class="art-desc">Colorful poster-paint illustration of a sparrow feeding its chick.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 6,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Sparrow%20Feeding%20Her%20Baby" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="ethereal_eye" alt="Ethereal Eye" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Ethereal Eye</div>
+                        <div class="art-meta">Poster Paint on Paper | 5" x 7"</div>
+                        <div class="art-desc">Surreal eye illustration exploring nature&#x27;s wonders.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 4,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Ethereal%20Eye" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="verdant_pattern" alt="Verdant Pattern" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Verdant Pattern</div>
+                        <div class="art-meta">Poster Paint on Paper | 30" x 20"</div>
+                        <div class="art-desc">Large decorative panel of layered green geometric patterns.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 12,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Verdant%20Pattern" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="blue_mandala" alt="Blue Mandala" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Blue Mandala</div>
+                        <div class="art-meta">Poster Paint on Paper | 8" x 10"</div>
+                        <div class="art-desc">Intricate blue mandala rendered in poster paint.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 5,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Blue%20Mandala" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="pop_portrait" alt="Pop Portrait" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Pop Portrait</div>
+                        <div class="art-meta">Poster on Canvas | 16" x 11"</div>
+                        <div class="art-desc">Bold pop-art style portrait on canvas.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 7,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Pop%20Portrait" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="tropical_leaves" alt="Tropical Leaves" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Tropical Leaves</div>
+                        <div class="art-meta">Poster on Canvas | 10" x 10"</div>
+                        <div class="art-desc">Decorative botanical leaf composition on canvas.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 6,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Tropical%20Leaves" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="star_mandala" alt="Star Mandala" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Star Mandala</div>
+                        <div class="art-meta">Poster on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Radiant star-pattern mandala in vivid primary colors.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 7,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Star%20Mandala" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item painting">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="amber_mandala" alt="Amber Mandala" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Amber Mandala</div>
+                        <div class="art-meta">Poster on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Warm amber and red geometric mandala.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 7,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Amber%20Mandala" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <!-- === LANDSCAPES === -->
+                <div class="art-card filter-item landscape">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="landscape_historical" alt="Rohtas Fort Landscape" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
@@ -994,8 +1183,61 @@
                         <div class="art-price-row"><span class="price-tag">PKR 14,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
                     </div>
                 </div>
+                <div class="art-card filter-item landscape">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="tree_lane" alt="Tree Lane" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Tree Lane</div>
+                        <div class="art-meta">Oil on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Quiet tree-lined lane in soft daylight.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 10,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Tree%20Lane" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
 
-                <div class="art-card filter-item landscape painting">
+                <div class="art-card filter-item landscape">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="ivy_house" alt="Ivy House" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Ivy House</div>
+                        <div class="art-meta">Oil on Canvas | 12" x 18"</div>
+                        <div class="art-desc">House facade wrapped in climbing ivy greens.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 12,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Ivy%20House" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item landscape">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="blossom_trunk" alt="Blossom Trunk" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Blossom Trunk</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Textured tree trunk crowned with pink blossoms.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Blossom%20Trunk" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item landscape">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="white_facade" alt="White Facade" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">White Facade</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Sunlit white building framed by lush green trees.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20White%20Facade" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+
+                <!-- === STILL LIFE === -->
+                <div class="art-card filter-item stilllife">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="still_life_oil" alt="Classical Still Life" draggable="false">
                         <span class="badge badge-avail">AVAILABLE</span>
@@ -1007,18 +1249,69 @@
                         <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
                     </div>
                 </div>
+                <div class="art-card filter-item stilllife">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="potted_plant" alt="Potted Plant" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Potted Plant</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Study of a potted plant with deep purple leaves.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Potted%20Plant" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item stilllife">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="apples_bowl" alt="Apples in Bowl" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Apples in Bowl</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Still life of fresh apples in a metal bowl on red drapery.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Apples%20in%20Bowl" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item stilllife">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="fruit_wine" alt="Fruit &amp; Wine" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Fruit &amp; Wine</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Classical still life with a fruit bowl, grapes and wine bottle.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Fruit%20%26%20Wine" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item stilllife">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="pears_bottle" alt="Pears &amp; Bottle" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Pears &amp; Bottle</div>
+                        <div class="art-meta">Oil on Canvas | 18" x 24"</div>
+                        <div class="art-desc">Still life of pears beside a green glass bottle with ivy.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Pears%20%26%20Bottle" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
 
                 <!-- === PORTRAITS & SKETCHES === -->
                 <div class="art-card filter-item portrait">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="charcoal_portrait" alt="Realistic Charcoal Portrait" draggable="false">
-                        <span class="badge badge-sold">COMMISSIONED</span>
+                        <span class="badge badge-sold">SOLD</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">Realistic Charcoal Portrait</div>
                         <div class="art-meta">Charcoal on Paper | 20" x 30"</div>
                         <div class="art-desc">Hyper-realistic expression study with high-contrast shadow rendering.</div>
-                        <div class="art-price-row"><span class="price-tag">From PKR 8,000</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Sketch</a></div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Similar</a></div>
                     </div>
                 </div>
 
@@ -1035,17 +1328,265 @@
                     </div>
                 </div>
 
+                                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="wolf_sketch" alt="Geometric Wolf" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Geometric Wolf</div>
+                        <div class="art-meta">Pointers on Paper | 11" x 16"</div>
+                        <div class="art-desc">Wolf portrait built from geometric pointer strokes.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 6,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Geometric%20Wolf" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="puppy_sketch" alt="Puppy Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Puppy Study</div>
+                        <div class="art-meta">Pencil Colors on Boxboard | 11" x 16"</div>
+                        <div class="art-desc">Soft pencil-color study of a puppy&#x27;s face.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 6,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Puppy%20Study" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="drapery_sketch" alt="Drapery Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Drapery Study</div>
+                        <div class="art-meta">Graphite on Paper | 11" x 16"</div>
+                        <div class="art-desc">Graphite study of cloth draped over a stool.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 5,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Drapery%20Study" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="elder_sketch" alt="The Elder" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">The Elder</div>
+                        <div class="art-meta">Graphite + Charcoal | A2</div>
+                        <div class="art-desc">Expressive large-scale portrait of an elderly man.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 12,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20The%20Elder" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="horse_sketch" alt="Horse Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Horse Study</div>
+                        <div class="art-meta">Graphite on Paper | 8" x 10"</div>
+                        <div class="art-desc">Detailed graphite study of a horse&#x27;s head.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 5,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Horse%20Study" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="ear_study" alt="Ear Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Ear Study</div>
+                        <div class="art-meta">Graphite on Paper | A4</div>
+                        <div class="art-desc">Anatomical graphite study of the human ear.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 4,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Ear%20Study" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item portrait">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="thinker_portrait" alt="The Thinker" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">The Thinker</div>
+                        <div class="art-meta">Oil on Canvas | 76" x 92"</div>
+                        <div class="art-desc">Large oil portrait of a contemplative man with glasses.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 60,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20The%20Thinker" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
                 <!-- === CALLIGRAPHY === -->
                 <div class="art-card filter-item calligraphy">
                     <div class="art-img-wrap" onclick="openArtModal(this)">
                         <img src="calligraphy_quran" alt="Islamic Calligraphy Verse" draggable="false">
-                        <span class="badge badge-sold">SOLD (1st Prize)</span>
+                        <span class="badge badge-avail">AVAILABLE</span>
                     </div>
                     <div class="art-details">
                         <div class="art-title">Islamic Calligraphy Verse</div>
                         <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
                         <div class="art-desc">1st Position Winner at Horizon Calligraphy Competition 2024.</div>
-                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Commission</a></div>
+                        <div class="art-price-row"><span class="price-tag">PKR 18,000</span><a href="https://wa.me/923186709009" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="al_wahhab" alt="Al-Wahhab" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Al-Wahhab</div>
+                        <div class="art-meta">Acrylic on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Golden calligraphy of Al-Wahhab on deep black.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 8,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Al-Wahhab" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="ar_razzaq" alt="Ar-Razzaq" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Ar-Razzaq</div>
+                        <div class="art-meta">Acrylic on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Golden Ar-Razzaq calligraphy on black canvas.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 8,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Ar-Razzaq" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="muhammad_calli" alt="Muhammad" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Muhammad</div>
+                        <div class="art-meta">Acrylic on Canvas | 12" x 12"</div>
+                        <div class="art-desc">Calligraphy of Muhammad in warm tones on maroon.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 8,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Muhammad" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="qul_calligraphy" alt="Qul" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Qul</div>
+                        <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                        <div class="art-desc">Large Qul calligraphy in white and gold on warm orange.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Qul" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="emerald_verse" alt="Emerald Verse" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Emerald Verse</div>
+                        <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                        <div class="art-desc">Quranic verse in white on a rich emerald green ground.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Emerald%20Verse" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="violet_verse" alt="Violet Verse" draggable="false">
+                        <span class="badge badge-sold">SOLD</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Violet Verse</div>
+                        <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                        <div class="art-desc">White calligraphy on a deep violet canvas.</div>
+                        <div class="art-price-row"><span class="price-tag" style="color:var(--sold-color)">SOLD</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Order Similar</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item calligraphy">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="golden_night" alt="Golden Night" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Golden Night</div>
+                        <div class="art-meta">Acrylic on Canvas | 24" x 18"</div>
+                        <div class="art-desc">Golden calligraphy glowing on a midnight-blue textured ground.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 15,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Golden%20Night" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                                <!-- === MINIATURE ART === -->
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="songbird_mini" alt="Songbird" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Songbird</div>
+                        <div class="art-meta">Gouache on Wasli | 4" x 4"</div>
+                        <div class="art-desc">Delicate miniature of a songbird in warm wasli tones.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 6,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Songbird" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="flutist_mini" alt="The Flutist" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">The Flutist</div>
+                        <div class="art-meta">Gouache on Wasli | 4" x 5"</div>
+                        <div class="art-desc">Miniature of a female flutist in flowing robes.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 7,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20The%20Flutist" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="noble_profile" alt="Noble Profile" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Noble Profile</div>
+                        <div class="art-meta">Rendering on Wasli | 4" x 5"</div>
+                        <div class="art-desc">Fine rendering of a Mughal noble&#x27;s profile on wasli.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 6,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Noble%20Profile" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="floral_study" alt="Floral Study" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Floral Study</div>
+                        <div class="art-meta">Rendering on Wasli | 4" x 6"</div>
+                        <div class="art-desc">Detailed floral rendering within a classic wasli border.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 7,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20Floral%20Study" class="btn-sm" target="_blank">Buy Now</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item miniature">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="nobleman_mini" alt="The Nobleman" draggable="false">
+                        <span class="badge badge-avail">AVAILABLE</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">The Nobleman</div>
+                        <div class="art-meta">Gouache on Wasli | 4" x 6"</div>
+                        <div class="art-desc">Standing Mughal nobleman in a green robe, gouache on wasli.</div>
+                        <div class="art-price-row"><span class="price-tag">PKR 8,000</span><a href="https://wa.me/923186709009?text=Hi%20Sana%2C%20I%20want%20to%20buy%20The%20Nobleman" class="btn-sm" target="_blank">Buy Now</a></div>
                     </div>
                 </div>
 
@@ -1072,6 +1613,44 @@
                         <div class="art-title">Vibrant Lion Pop-Art Mural</div>
                         <div class="art-meta">Enamel on Wall | 240" x 96"</div>
                         <div class="art-desc">Bold high-contrast multi-panel wall painting for energetic modern spaces.</div>
+                        <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
+                    </div>
+                </div>
+                <div class="art-card filter-item mural">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="eagle_mural" alt="Eagle Mural" draggable="false">
+                        <span class="badge badge-sold">Mural Project</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Eagle Mural</div>
+                        <div class="art-meta">Enamel on Wall | 60" x 50"</div>
+                        <div class="art-desc">Soaring eagle mural in warm sunset tones.</div>
+                        <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item mural">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="bougainvillea_mural" alt="Bougainvillea Muse" draggable="false">
+                        <span class="badge badge-sold">Mural Project</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Bougainvillea Muse</div>
+                        <div class="art-meta">Enamel on Wall | 240" x 96"</div>
+                        <div class="art-desc">Large floral portrait mural crowned with bougainvillea.</div>
+                        <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
+                    </div>
+                </div>
+
+                <div class="art-card filter-item mural">
+                    <div class="art-img-wrap" onclick="openArtModal(this)">
+                        <img src="quaid_mural" alt="Quaid Mural" draggable="false">
+                        <span class="badge badge-sold">Mural Project</span>
+                    </div>
+                    <div class="art-details">
+                        <div class="art-title">Quaid Mural</div>
+                        <div class="art-meta">Enamel on Wall | 108" x 130"</div>
+                        <div class="art-desc">Tribute mural of Quaid-e-Azam with his famous quote.</div>
                         <div class="art-price-row"><span class="price-tag">Commission</span><a href="#commission" onclick="showPage('home')" class="btn-sm">Inquire Mural</a></div>
                     </div>
                 </div>
@@ -1106,7 +1685,7 @@
             <div class="modal-img-container" oncontextmenu="return false;">
                 <div class="anti-theft-shield" oncontextmenu="return false;"></div>
                 <img id="modalImg" src="" alt="Artwork Preview" draggable="false" oncontextmenu="return false;">
-                <div class="watermark-overlay">© Sana Naseer Fine Art</div>
+                <div class="watermark-overlay">Â© Sana Naseer Fine Art</div>
             </div>
             <div class="modal-details">
                 <div>
@@ -1119,7 +1698,7 @@
                         <li><strong>Description:</strong> <span id="modalDesc">Artwork details...</span></li>
                     </ul>
                 </div>
-                <a id="modalOrderBtn" href="#" class="btn-gold" target="_blank" style="text-align: center; width: 100%;">Order / Inquire via WhatsApp ➔</a>
+                <a id="modalOrderBtn" href="#" class="btn-gold" target="_blank" style="text-align: center; width: 100%;">Order / Inquire via WhatsApp â</a>
             </div>
         </div>
     </div>
@@ -1216,6 +1795,17 @@
                     this.src = baseName + '.jpeg';
                 };
             }
+        });
+
+
+        // Image protection: block right-click save & drag on artwork photos
+        document.addEventListener('contextmenu', function(e) {
+            if (e.target.closest('.art-img-wrap') || e.target.closest('.modal-img-container')) {
+                e.preventDefault();
+            }
+        });
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') e.preventDefault();
         });
 
         function sendWhatsAppOrder(event) {
