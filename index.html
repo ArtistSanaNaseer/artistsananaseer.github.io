@@ -1963,7 +1963,8 @@
                 if (_isLight && !p.tint) { var _r = Math.random(); p.tint = _r < 0.5 ? '30,42,68' : (_r < 0.8 ? '45,45,45' : '22,32,54'); }
                 ctx.fillStyle = _isLight ? `rgba(${p.tint}, ${p.alpha})` : `rgba(229, 193, 88, ${p.alpha})`;
                 ctx.shadowBlur = 14;
-                ctx.shadowBlur = _isLight ? 0 : 14;\n                ctx.shadowColor = _isLight ? 'rgba(0,0,0,0)' : '#e5c158';
+                ctx.shadowBlur = _isLight ? 0 : 14;
+                ctx.shadowColor = _isLight ? 'rgba(0,0,0,0)' : '#e5c158';
                 ctx.fill();
             });
             requestAnimationFrame(animateCanvas);
